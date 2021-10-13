@@ -1,7 +1,7 @@
 # [ENG] In quick sort algorithm at the beginning we choose a pivot (one of array elements and according to this element we
 # will be modifying array - smaller or equal numbers than pivot will be on the left and greater on the right). This is
 # happening in a "partition" function. Later, we recursively do the same thing for two subarrays and pivot is this
-# element which divide this two subarrays. When recursion finishes array is sorted.
+# element which divides this two subarrays. When recursion finishes array is sorted.
 # In average case height of recursion tree will be O(lg n) and in the same level of the tree we have O(n) elements.
 # Seldom will time complexity O(n^2) happen. It can occur only if a pivot will be constantly the smallest
 # or the largest number.
