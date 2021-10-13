@@ -26,3 +26,7 @@ def insertion_sort(tab):
 
 tab = [3, 2, 17, 1, 10, 5, 13, 6]
 print(insertion_sort(tab))
+
+# [ENG] Note that using while loop in line 20 is better than for loop, because we don't know an appropriate place for considered element.
+# [PL] Warto zauważyć, iż użycie pętli while w linii 20 jest lepsze od pętli for, ponieważ nie znamy miejsca w podtablicy, na które
+# trafi obecnie rozważany element.
