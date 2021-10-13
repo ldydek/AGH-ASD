@@ -1,5 +1,6 @@
 # Bubble sort algorithm. In each iteration internal loop two neighbouring elements are compared and possibly swapped.
 # "N" iterations of the external loop is necessary if the least element is located at the end of the list.
+# Time complexity: O(n^2)
 def bubble_sort(tab):
     n = len(tab)
     for y in range(n):
