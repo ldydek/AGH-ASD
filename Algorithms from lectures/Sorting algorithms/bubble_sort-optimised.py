@@ -21,7 +21,8 @@ def optimised_bubble_sort(tab):
                 p = False
         if p:
             break
-    #     "if p" is the same as "if p is True" or "if p == True"
+    #     [ENG] "if p" is the same as "if p is True" or "if p == True"
+    #     [PL] "if p" to to samo co "if p is True" lub "if p == True"
     return tab
 
 
