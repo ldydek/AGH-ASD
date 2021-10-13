@@ -1,17 +1,17 @@
-# In quick sort algorithm at the beginning we choose a pivot (one of array elements and according to this element we
+# [ENG] In quick sort algorithm at the beginning we choose a pivot (one of array elements and according to this element we
 # will be modifying array - smaller or equal numbers than pivot will be on the left and greater on the right). This is
 # happening in a "partition" function. Later, we recursively do the same thing for two subarrays and pivot is this
 # element which divide this two subarrays. When recursion finishes array is sorted.
 # In average case height of recursion tree will be O(lg n) and in the same level of the tree we have O(n) elements.
 # Seldom will time complexity O(n^2) happen.
 # Time complexity: O(n lg n)
-# W sortowaniu szybkim na początku wybieramy piwota (jeden z elementów tablicy i elementy mniejsze lub równe znajdą
+# [PL] W sortowaniu szybkim na początku wybieramy piwota (jeden z elementów tablicy i elementy mniejsze lub równe znajdą
 # się na lewo od niego, a większe na prawo po modyfikacji tablicy w funkcji "partition"). Rekurencyjnie wywołujemy
 # funkcję dla dwóch podtablic i tę operację powtarzamy do momentu końca rekursji. Po zakończeniu tablica jest
 # posortowana.
 # W przeciętnym przypadku wysokość drzewa rekursji będzie rzędu O(lg n) a na każdym poziomie będziemy mieć O(n)
 # elementów. Złożoność O(n^2) bardzo rzadko ma miejsce.
-# Złożoność obliczeniowa: O(n lgn)
+# Złożoność obliczeniowa: O(n lg n)
 
 def quick_sort(tab, p, r):
     while p < r:
