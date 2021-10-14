@@ -9,7 +9,7 @@
 # w stanie posortować daną tablicę dla specyficznych danych (liczby całkowite z małego zakresu) w czasie liniowym.
 # Alokujemy dwie pomocnicze tablice. Pierwsza z nich (nazwana C) służy do przechowywania informacji - dla elementu
 # C[i] wiemy, ile liczb jest mniejszych lub równych i. W tablicy B przechowujemy posortowaną tablicę.
-# Złożoność obliczeniowa: O(n+k), gdzie k jest rozmiarem dodatkowo zaalokowanej tablicy. Jeśli k = O(n), to posortowanie
+# Złożoność obliczeniowa: O(n+k), gdzie k jest zakresem liczb do posortowania. Jeśli k = O(n), to posortowanie
 # zajmie θ(n). Algorytm jest stabilny! Liczby ujemne też mogą wystąpić i wtedy wystarczy znaleźć odpowiednie równanie
 # przeliczania liczb na indeksy.
 
