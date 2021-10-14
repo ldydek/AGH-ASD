@@ -13,7 +13,7 @@
 # zajmie θ(n). Algorytm jest stabilny, ale nie działa w miejscu (dwie dodatkowe tablice). Liczby całkowite ujemne też
 # mogą wystąpić i wtedy wystarczy znaleźć odpowiednie równanie przeliczania liczb na indeksy.
 
-def count_sort(A, k):
+def counting_sort(A, k):
     n = len(A)
     C = [0]*k
     B = [0]*n
@@ -29,7 +29,7 @@ def count_sort(A, k):
     return B
 
 
-def count_sort_negative_numbers(A):
+def counting_sort_negative_numbers(A):
     n, a, b = len(A), min(A), max(A)
     k = b-a+1
     # [ENG] "k" is range of numbers
@@ -48,4 +48,4 @@ def count_sort_negative_numbers(A):
 
 tab = [7, 3, 5, 5, 1, 2, 1, 5, 4, 7, 3]
 n = 8
-print(count_sort(tab, n))
+print(counting_sort(tab, n))
