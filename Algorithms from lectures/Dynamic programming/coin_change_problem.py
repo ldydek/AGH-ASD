@@ -13,7 +13,7 @@
 # Programowanie dynaminczne jest dobrym pomysłem, aby ten problem rozwiązać.
 # Złożoność czasowa: O(nk), gdzie "k" to kwota do wydania a "n" to ilość dostępnych nominałów, a więc algorytm jest
 # pseudowielomianowy.
-# Złożoność pamięciowa: O(k) - dodatkowa tablica w pierwszy podejściu czy rekurencyjne odkładanie funkcji na stosie 
+# Złożoność pamięciowa: O(k) - dodatkowa tablica w pierwszy podejściu czy rekurencyjne odkładanie funkcji na stosie
 # w drugim.
 # Poniżej zostało zaprezentowane podejście metodą wstępującą i zstępującą.
 from math import inf
@@ -22,19 +22,22 @@ from math import inf
 def bottom_up_coin_change_problem(tab, k):
     n = len(tab)
     aux_tab = [inf]*(k+1)
+    parent = [-1]*(k+1)
     aux_tab[0] = 0
+    b = min(tab)
     for x in range(n):
         if tab[x] <= k:
             aux_tab[tab[x]] = 1
-#             [ENG] if denomination is bigger than our amount of money program will just ignore it 
+#             [ENG] if denomination is bigger than our amount of money program will just ignore it
 #             [PL]  jeśli nominał jest większy od naszej kwoty program po prostu go zignoruje
-    for x in range(tab[0], k+1):
+    for x in range(b, k+1):
         ctr = inf
         for y in range(n):
-            if x >= tab[y]:
-                ctr = min(ctr, aux_tab[x-tab[y]])
+            if x >= tab[y] and ctr > aux_tab[x-tab[y]]:
+                ctr = aux_tab[x-tab[y]]
+                parent[x] = x - tab[y]
         aux_tab[x] = ctr + 1
-    return aux_tab[k]
+    return print_coins(parent, k)
 
 
 def top_down_coin_change_problem(tab, k):
@@ -43,20 +46,35 @@ def top_down_coin_change_problem(tab, k):
             return aux_tab[n]
         for x in range(len(tab)):
             if n - tab[x] >= 0:
-                aux_tab[n] = min(aux_tab[n], recursion(tab, n-tab[x], aux_tab)+1)
+                xd = recursion(tab, n-tab[x], aux_tab)
+                if xd + 1 < aux_tab[n]:
+                    aux_tab[n] = xd + 1
+                    parent[n] = n - tab[x]
         return aux_tab[n]
 
     n = len(tab)
     aux_tab = [inf]*(k+1)
+    parent = [-1]*(k+1)
     for x in range(n):
         if tab[x] <= k:
             aux_tab[tab[x]] = 1
+            parent[tab[x]] = 0
     aux_tab[0] = 0
     recursion(tab, k, aux_tab)
-    return aux_tab[k]
+    return print_coins(parent, k)
 
 
-tab = [1, 5, 7, 9]
-k = 23
+# [ENG] Additional function which shows us set of coins we took.
+# [PL] Dodatkowa funkcja pokazująca nam, które monety zostały wzięte do rozwiązania.
+def print_coins(parent, k):
+    solution = []
+    while parent[k] != -1:
+        solution.append(k-parent[k])
+        k = parent[k]
+    return solution
+
+
+tab = [3, 5, 7]
+k = 39
 print(top_down_coin_change_problem(tab, k))
 print(bottom_up_coin_change_problem(tab, k))
