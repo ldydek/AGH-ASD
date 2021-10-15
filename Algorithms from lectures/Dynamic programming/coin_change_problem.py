@@ -10,7 +10,8 @@
 # [PL] W problemie wydawania reszty mamy podaną kwotę, którą należy wydać za pomocą dostępnych nominałów pieniędzy
 # i należy to zrobić minimalną ilością monet. Nominały monet są znane na początku, a ich ilość jest nieograniczona.
 # Programowanie dynaminczne jest dobrym pomysłem, aby ten problem rozwiązać.
-# Złożoność czasowa: O(nk), gdzie "k" to kwota do wydania a "n" to ilość dostępnych nominałów.
+# Złożoność czasowa: O(nk), gdzie "k" to kwota do wydania a "n" to ilość dostępnych nominałów, a więc algorytm jest
+# pseudowielomianowy.
 # Poniżej zostało zaprezentowane podejście metodą wstępującą i zstępującą.
 from math import inf
 
