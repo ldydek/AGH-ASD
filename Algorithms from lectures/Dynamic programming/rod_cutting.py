@@ -24,7 +24,7 @@ def bottom_up_rod_cutting(prices):
         for y in range(1, x+1):
             q = max(q, aux_tab[x-y]+prices[y])
         aux_tab[x] = q
-    return aux_tab
+    return aux_tab[n-1]
 
 
 # [ENG] We can easily modify function and get not only profit, but also best lengths of pieces after cutting
@@ -68,7 +68,7 @@ def top_down_rod_cutting(prices):
     aux_tab = [inf]*n
     aux_tab[0] = 0
     recursion(n, aux_tab)
-    return aux_tab
+    return aux_tab[n-1]
 
 prices = [0, 1, 4, 50, 50]
 print(bottom_up_rod_cutting_print_lengths(prices))
