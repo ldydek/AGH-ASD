@@ -7,11 +7,14 @@
 # Below is presented top-down and bottom-up approach to this problem.
 # Time complexity: O(nk), where "k" is our sum of money and "n" number of denominations, so algorithm is
 # pseudo-polynomial.
+# Space complexity: O(k) - additional array in first approach or recursion call stack in the second one.
 # [PL] W problemie wydawania reszty mamy podaną kwotę, którą należy wydać za pomocą dostępnych nominałów pieniędzy
 # i należy to zrobić minimalną ilością monet. Nominały monet są znane na początku, a ich ilość jest nieograniczona.
 # Programowanie dynaminczne jest dobrym pomysłem, aby ten problem rozwiązać.
 # Złożoność czasowa: O(nk), gdzie "k" to kwota do wydania a "n" to ilość dostępnych nominałów, a więc algorytm jest
 # pseudowielomianowy.
+# Złożoność pamięciowa: O(k) - dodatkowa tablica w pierwszy podejściu czy rekurencyjne odkładanie funkcji na stosie 
+# w drugim.
 # Poniżej zostało zaprezentowane podejście metodą wstępującą i zstępującą.
 from math import inf
 
