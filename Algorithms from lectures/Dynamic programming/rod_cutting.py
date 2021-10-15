@@ -52,5 +52,23 @@ def print_path(parent, x):
     return solution[::-1]
 
 
+# [ENG] Top-down approach to solve that problem.
+# [PL] Rozwiązanie tego problemu za pomocą spamiętywania.
+
+def top_down_rod_cutting(prices):
+    def recursion(n, aux_tab):
+        if aux_tab[n-1] != inf:
+            return aux_tab[n-1]
+        q = -inf
+        for x in range(1, n):
+            q = max(q, recursion(n-x, aux_tab)+prices[x])
+        aux_tab[n-1] = q
+        return q
+    n = len(prices)
+    aux_tab = [inf]*n
+    aux_tab[0] = 0
+    recursion(n, aux_tab)
+    return aux_tab
+
 prices = [0, 1, 4, 50, 50]
 print(bottom_up_rod_cutting_print_lengths(prices))
