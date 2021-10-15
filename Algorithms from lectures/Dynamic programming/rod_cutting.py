@@ -5,10 +5,14 @@
 # Basic case: f(0) = 0 (if length of the rod is 0 we can't sell anything)
 # Recursion: f(i) = max(f(i-k) + tab[k]) for certain "k" (tab[k] is a profit of selling rod length "k")
 # "k" is from 1 to "i".
+# Time complexity: O(n^2)
+# Space complexity: O(n) - extra space without considering data, which program gets at the input
 # [PL] W problemie cięcia pręta, znając ceny za długości poszczegolnych prętów, tak musimy go pociąć, aby otrzymać
 # z jego sprzedaży możliwie największy zysk. Dopuszczamy również możliwość sprzedaży pręta w całości. Problem ten
 # charakteryzuje się optymalną podstrukturą, a więc dobrym pomysłem będzie użycie w jego rozwiązaniu programowania
 # dynamicznego.
+# Złożoność obliczeniowa: O(n^2)
+# Złożoność pamięciowa: O(n) - pamięć dodatkowa, nie uwzględniając danych, które program przyjmuje na wejściu
 from math import inf
 
 
