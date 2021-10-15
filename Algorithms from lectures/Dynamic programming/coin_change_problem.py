@@ -21,7 +21,10 @@ def bottom_up_coin_change_problem(tab, k):
     aux_tab = [inf]*(k+1)
     aux_tab[0] = 0
     for x in range(n):
-        aux_tab[tab[x]] = 1
+        if tab[x] <= k:
+            aux_tab[tab[x]] = 1
+#             [ENG] if denomination is bigger than our amount of money program will just ignore it 
+#             [PL]  jeśli nominał jest większy od naszej kwoty program po prostu go zignoruje
     for x in range(tab[0], k+1):
         ctr = inf
         for y in range(n):
@@ -35,22 +38,22 @@ def top_down_coin_change_problem(tab, k):
     def reku(tab, n, aux_tab):
         if aux_tab[n] != inf:
             return aux_tab[n]
-        for x in range(b, len(tab)):
+        for x in range(len(tab)):
             if n - tab[x] >= 0:
                 aux_tab[n] = min(aux_tab[n], reku(tab, n-tab[x], aux_tab)+1)
         return aux_tab[n]
 
     n = len(tab)
     aux_tab = [inf]*(k+1)
-    b = min(tab)
     for x in range(n):
-        aux_tab[tab[x]] = 1
+        if tab[x] <= k:
+            aux_tab[tab[x]] = 1
     aux_tab[0] = 0
     reku(tab, k, aux_tab)
     return aux_tab[k]
 
 
-tab = [1, 2, 5]
-k = 97
+tab = [1, 5, 7, 9]
+k = 23
 print(top_down_coin_change_problem(tab, k))
 print(bottom_up_coin_change_problem(tab, k))
