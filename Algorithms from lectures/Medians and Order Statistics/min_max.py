@@ -1,13 +1,15 @@
 # [ENG] To find minimum and maximum in an unsorted array we can just traverse whole array and find that elements in
 # linear time. It's important to note that in this way we make two comparisons for one element, because we compare each
-# element with temporary minimum and maximum. True is we can find that elements making less comparisons. Idea is to
-# compare two neighbouring elements with each other and later larger with maximum and smaller with minimum. Thanks to
-# this trick we make 3 comparisons for every 2 elements.
+# element with temporary minimum and maximum. True is that we can find that elements making less comparisons. Idea is
+# to compare two neighbouring elements with each other and later larger with maximum and smaller with minimum. Thanks
+# to this trick we make 3 comparisons for every 2 elements. If length of our array is an odd number, at the beginning
+# minimum and maximum is value of the first element. 
 # Time complexity: O(n)
-# [PL] Aby znależć zarówno minimum jak i maksimum w nieposortowanej tablicy danych możemy po prostu dwa razy całą tę
-# tablicę przejrzeć. Wykonujemy wtedy dla każdego elementu dwa porównania z tymczasowym minimum i maksimum. Prawda jest
-# jednak taka, że aby te elementy wyznaczyć wytarczą 3 porównania na 2 elementy. Pomysł jest następujący: na początku
+# [PL] Aby znależć zarówno minimum jak i maksimum w nieposortowanej tablicy danych, możemy po prostu całą tę tablicę
+# przejrzeć. Wykonujemy wtedy dla każdego elementu dwa porównania z tymczasowym minimum i maksimum. Prawda jest
+# jednak taka, że aby te elementy wyznaczyć, wystarczą 3 porównania na 2 elementy. Pomysł jest następujący: na początku
 # dwa sąsiednie elementy tablicy porównujemy ze sobą nawzajem a potem większy z nich z maksimum a mniejszy z minimum.
+# Jeśli długość tablicy jest nieparzysta, to na początku jako minimum i maksimum przyjmujemy wartość pierwszego elementu.
 # Złożoność obliczeniowa: O(n)
 
 def min_max(tab):
