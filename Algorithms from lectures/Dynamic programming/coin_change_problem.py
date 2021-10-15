@@ -38,12 +38,12 @@ def bottom_up_coin_change_problem(tab, k):
 
 
 def top_down_coin_change_problem(tab, k):
-    def reku(tab, n, aux_tab):
+    def recursion(tab, n, aux_tab):
         if aux_tab[n] != inf:
             return aux_tab[n]
         for x in range(len(tab)):
             if n - tab[x] >= 0:
-                aux_tab[n] = min(aux_tab[n], reku(tab, n-tab[x], aux_tab)+1)
+                aux_tab[n] = min(aux_tab[n], recursion(tab, n-tab[x], aux_tab)+1)
         return aux_tab[n]
 
     n = len(tab)
@@ -52,7 +52,7 @@ def top_down_coin_change_problem(tab, k):
         if tab[x] <= k:
             aux_tab[tab[x]] = 1
     aux_tab[0] = 0
-    reku(tab, k, aux_tab)
+    recursion(tab, k, aux_tab)
     return aux_tab[k]
 
 
