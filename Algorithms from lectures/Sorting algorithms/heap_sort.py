@@ -8,7 +8,7 @@
 # - now we consider subarray from first to certain element)
 # Building max heap: O(n)
 # Time complexity: O(n lg n), because we do "n" times "heapify" O(lg n)
-# [PL] W algorytmie sortowania przez kopcowanie wykorzystujemy strukturę danych zwaną kopcem binarnym. Latwo wyobrazić
+# [PL] W algorytmie sortowania przez kopcowanie wykorzystujemy strukturę danych zwaną kopcem binarnym. Łatwo wyobrazić
 # sobie kopiec jako kompletne drzewo binarne a na ostatnim poziomie węzły są położone od lewej do prawej. Na początku
 # z podanej tablicy danych budujemy kopiec. Robimy to, wywołując "heapify" dla elementów kopca, które nie są liśćmi,
 # ponieważ tylko dla nich warunek kopca może nie być spełniony. Następnie w funkcji heapsort zamieniamy korzeń kopca,
