@@ -16,7 +16,7 @@
 from math import inf
 
 
-def coin_change_problem(tab, k):
+def bottom_up_coin_change_problem(tab, k):
     n = len(tab)
     aux_tab = [0]*(k+1)
     for x in range(n):
@@ -30,7 +30,7 @@ def coin_change_problem(tab, k):
     return aux_tab
 
 
-def coin_change_problem_memoized(tab, k):
+def top_down_coin_change_problem(tab, k):
     def reku(tab, n, aux_tab):
         xd = inf
         if aux_tab[n] != inf:
@@ -52,5 +52,5 @@ def coin_change_problem_memoized(tab, k):
 
 tab = [1, 2, 5]
 k = 97
-print(coin_change_problem_memoized(tab, k))
-print(coin_change_problem(tab, k))
+print(top_down_coin_change_problem(tab, k))
+print(bottom_up_coin_change_problem(tab, k))
