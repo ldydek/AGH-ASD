@@ -18,7 +18,8 @@ from math import inf
 
 def bottom_up_coin_change_problem(tab, k):
     n = len(tab)
-    aux_tab = [0]*(k+1)
+    aux_tab = [inf]*(k+1)
+    aux_tab[0] = 0
     for x in range(n):
         aux_tab[tab[x]] = 1
     for x in range(tab[0], k+1):
@@ -32,12 +33,11 @@ def bottom_up_coin_change_problem(tab, k):
 
 def top_down_coin_change_problem(tab, k):
     def reku(tab, n, aux_tab):
-        xd = inf
         if aux_tab[n] != inf:
             return aux_tab[n]
         for x in range(tab[0], len(tab)):
             if n - tab[x] >= 0:
-                xd = min(xd, reku(tab, n-tab[x], aux_tab)+1)
+                aux_tab[n] = min(aux_tab[n], reku(tab, n-tab[x], aux_tab)+1)
         aux_tab[n] = xd
         return aux_tab[n]
 
