@@ -38,7 +38,6 @@ def top_down_coin_change_problem(tab, k):
         for x in range(tab[0], len(tab)):
             if n - tab[x] >= 0:
                 aux_tab[n] = min(aux_tab[n], reku(tab, n-tab[x], aux_tab)+1)
-        aux_tab[n] = xd
         return aux_tab[n]
 
     n = len(tab)
