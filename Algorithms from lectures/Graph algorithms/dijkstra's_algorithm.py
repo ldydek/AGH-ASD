@@ -7,7 +7,7 @@
 # Note that if graph is in matrix representation there is no need to allocate priority queue, because during traversing
 # row in a matrix and looking for an edge I can also iterate in my "distance" array and find vertex in a graph, which
 # doesn't have computed real distance from the source.
-# Time complexity: O(E lg V)
+# Time complexity: O(E lg V) for priority queue as binary heap
 # Space complexity: O(V)
 # [PL] Algorytm Dijkstry rozwiązuje problem znajdowania najkrótszych ścieżek ze źródła do każdego innego wierzchołka
 # w grafie o nieujemnych wagach. Używamy w nim dodatkowej struktury danych - kolejki priorytetowej, która pomaga nam
@@ -17,7 +17,7 @@
 # zmniejszymy odległości dotychczas znalezionej. Do kolejki dodajemy krotki postaci
 # (odległość od źródła, nr wierzchołka). Wynikiem działania algorytmu jest drzewo najkrótszych ścieżek.
 # Warto zauważyć, że w przypadku reprezentacji macierzowej grafu nie jest konieczne alokowanie kolejki, ponieważ
-# podczs liniowego przechodzenia przez rząd macierzy w poszukiwaniu krawędzi tę samą operację mogę zrobić w tablicy
+# podczas liniowego przechodzenia rzędu macierzy w poszukiwaniu krawędzi tę samą operację można zrobić w tablicy
 # "distance", szukając wierzchołka, dla którego nie została jeszcze wyznaczona długość najkrótszej ścieżki.
 # Złożoność obliczeniowa: O((V+E)lgV) = O(ElgV) dla kolejki priorytetowej jako kopca binarnego
 # Złożoność pamięciowa: O(V) - kolejka priorytetowa (kopiec binarny) ze wszytkimi wierzchołkami.
