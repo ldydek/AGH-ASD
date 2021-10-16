@@ -57,6 +57,9 @@ def dfs_l(graph):
     return print_path(parent, 5)
 
 
+# [ENG] This function allows us to construct path from the initial vertex to any other if it exists.
+# [PL] Ta funkcja pozwala nam odtworzyć dowolną ścieżkę w grafie między wierzchołkiem początkowym a jakimkolwiek innym
+# (o ile ścieżka istnieje).
 def print_path(parent, x):
     solution = []
     if parent[x] == -1:
