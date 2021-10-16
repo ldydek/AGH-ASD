@@ -8,12 +8,16 @@
 # Recursion: f(i, j) = max(f(i-1, j), f(i-1, j-W[i]) + P[i])
 # Solution: aux_tab[n-1][max_w], where aux_tab is an array for keeping values of solved subproblems
 # Below is presented top-down and bottom-up approach to this problem.
+# Time complexity: O(nk), where "n" is number of items and "k" our limited weight (pseudo-polynomial time)
+# Space complexity: O(nk) - one additional array for keeping values of solved subproblems
 # [PL] W 0-1 problemie plecakowym mamy dany zbiór przedmiotów, które możemy ze sobą zabrać. Dodatkowo każdy przedmiot
 # ma wagę oraz cenę. Naszym celem jest wzięcie pewnej ilości przedmiotów tak, aby ich łączna cena była możliwie jak
 # największa oraz ich waga nie przekraczała zadanego limitu. Problem spróbujemy rozwiązać za pomocą programowania
 # dynamicznego. 0-1 problem plecakowy oznacza, że nie dopuszczamy kopiowania tych samym elementów (jeśli dany przedmiot
 # bierzemy, to możemy to uczynić tylko jeden raz).
 # Poniżej zaprezentowane są podejścia metodą wstępującą i zstępującą.
+# Złożoność obliczeniowa: O(nk), gdzie "n" to ilość rzeczy a "k" to limit wagi (pseudowielomianowa złożoność)
+# Złożoność pamięciowa: O(nk) - jedna dodatkowa tablica dla trzymania wartości obliczonych wcześniej podproblemów
 from math import inf
 
 
