@@ -1,4 +1,4 @@
-# [ENG] Thank to dynamic programming we can find longest increasing subsequence (LIS) of given sequence. So let's
+# [ENG] Thanks to dynamic programming we can find longest increasing subsequence (LIS) of given sequence. So let's
 # declare a function: f(i) - LIS which consists of elements only from tab[0] to tab[i].
 # Basic case: f(0) = 1, one-piece sequence is a trivial increasing sequence
 # Recursion: f(i) = max(f(k))+1, where "k" is a certain index located before index "i", so already computed value f(k)
