@@ -13,7 +13,7 @@ from collections import deque
 from math import inf
 
 
-def bfs(graph, s):
+def bfs_m(graph, s):
     n = len(graph)
     distance = [inf]*n
     visited = [False]*n
@@ -29,13 +29,32 @@ def bfs(graph, s):
                 distance[x] = distance[u] + 1
                 parent[x] = u
                 Q.append(x)
-    return print_solution(parent, 5)
+    return print_path(parent, 5)
+
+
+def bfs_l(tab, s):
+    n = len(tab)
+    Q = deque()
+    visited = [False]*n
+    distance = [inf]*n
+    parent = [-1]*n
+    distance[s], visited[s] = 0, True
+    Q.append(s)
+    while Q:
+        u = Q.popleft()
+        for x in range(len(tab[u])):
+            if visited[tab[u][x]] is False:
+                visited[tab[u][x]] = True
+                distance[tab[u][x]] = distance[u] + 1
+                parent[tab[u][x]] = u
+                Q.append(tab[u][x])
+    return print_path(parent, 5)
 
 
 # [ENG] This function allows us to construct path from the initial vertex to any other if it exists.
 # [PL] Ta funkcja pozwala nam odtworzyć dowolną ścieżkę w grafie między wierzchołkiem początkowym a jakimkolwiek innym
 # (o ile ścieżka istnieje).
-def print_solution(parent, x):
+def print_path(parent, x):
     solution = []
     if parent[x] != -1:
         while parent[x] != -1:
@@ -47,6 +66,8 @@ def print_solution(parent, x):
 
 graph = [[0, 1, 1, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0], [1, 0, 0, 1, 0, 1, 0], [0, 0, 1, 0, 1, 1, 0],
          [0, 0, 0, 1, 0, 0, 0], [0, 0, 1, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0]]
-print(bfs(graph, 0))
+graph1 = [[1, 2], [0], [0, 3, 5], [2, 4, 5], [3], [2, 3], []]
+print(bfs_m(graph, 0))
+print(bfs_l(graph1, 0))
 # [ENG] We start BFS from 0 vertex
 # [PL] BFS zaczynamy od wierzchołka nr 0
