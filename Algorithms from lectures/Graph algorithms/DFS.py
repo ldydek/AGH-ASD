@@ -35,6 +35,28 @@ def dfs_m(graph):
     return print_path(parent, 5)
 
 
+def dfs_l(graph):
+    def dfs_visit(graph, x, visited, parent, processed):
+        nonlocal time
+        time += 1
+        visited[x] = time
+        for y in range(len(graph[x])):
+            if visited[graph[x][y]] == 0:
+                parent[graph[x][y]] = x
+                dfs_visit(graph, graph[x][y], visited, parent, processed)
+        time += 1
+        processed[x] = time
+
+    time, n = 0, len(graph)
+    visited = [0]*n
+    processed = [0]*n
+    parent = [-1]*n
+    for x in range(n):
+        if visited[x] == 0:
+            dfs_visit(graph, x, visited, parent, processed)
+    return print_path(parent, 5)
+
+
 def print_path(parent, x):
     solution = []
     if parent[x] == -1:
@@ -46,6 +68,8 @@ def print_path(parent, x):
     return solution[::-1]
 
 
-graph = [[0, 1, 1, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0], [1, 0, 0, 1, 0, 1, 0], [0, 0, 1, 0, 1, 1, 0],
+graph1 = [[0, 1, 1, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0], [1, 0, 0, 1, 0, 1, 0], [0, 0, 1, 0, 1, 1, 0],
          [0, 0, 0, 1, 0, 0, 0], [0, 0, 1, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0]]
-print(dfs_m(graph))
+graph2 = [[1, 2], [0], [0, 3, 5], [2, 4, 5], [3], [2, 3]]
+print(dfs_m(graph1))
+print(dfs_l(graph2))
