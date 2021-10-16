@@ -1,12 +1,14 @@
 # [ENG] In Breadth First Search (BFS) algorithm we research how graph looks like. We need here an additional data
-# structure called a queue. At the beginning we add first chosen vertex and when algorithm works to the queue we will
-# add only unvisited vertex (so part if the graph which is still not researched). Below is implementation of this idea
-# for graph in adjacency matrix and list.
+# structure called a queue. At the beginning, we add a first chosen vertex and when algorithm works to the queue we will
+# be adding only unvisited vertex (so part of the graph which is still not researched). Result of this algorithm is BFS
+# tree, wchich contains vertices available from the source (initial vertex). Below is implementation of this idea for
+# graphs in adjacency matrixes and lists.
 # Time complexity: O(V+E) for lists and O(V^2) for matrixes, where V is set of vertices and E number of edges between them
 # Space complexity: O(V) - additional arrays of length V (visited, distance, parent)
 # [PL] W algorytmie przeszukiwania wszerz (z ang. BFS) badamy jak graf wygląda. Będziemy tutaj potrzebowali dodatkowej
 # struktury danych zwanej kolejką. Na początku do kolejki dodaję jeden wybrany wierzchołek i podczas działania algorytmu
-# dla ściąganego wierzchołka z kolejki dodaję do niej wszystkich jego nieodwiedzonych sąsiadów.
+# dla ściąganego wierzchołka z kolejki dodaję do niej wszystkich jego nieodwiedzonych sąsiadów. Wynikiem działania 
+# algorytmu jest drzewo BFS zawierające wierzchołki osiągalne ze źródła (wierzchołka początkowego)
 # Złożoność obliczeniowa: O(V+E) dla list siąsiedztwa, O(V^2) - dla macierzy sąsiedztwa
 # Złożonośc pamięciowa:  O(V) - dodatkowe tablice visited, distance oraz parent
 from collections import deque
@@ -69,5 +71,5 @@ graph = [[0, 1, 1, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0], [1, 0, 0, 1, 0, 1, 0], [0
 graph1 = [[1, 2], [0], [0, 3, 5], [2, 4, 5], [3], [2, 3], []]
 print(bfs_m(graph, 0))
 print(bfs_l(graph1, 0))
-# [ENG] We start BFS from 0 vertex
-# [PL] BFS zaczynamy od wierzchołka nr 0
+# [ENG] We start BFS from 0 vertex (our source)
+# [PL] BFS zaczynamy od wierzchołka nr 0 (nasze źródło)
