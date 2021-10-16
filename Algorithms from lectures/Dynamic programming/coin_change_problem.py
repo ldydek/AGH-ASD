@@ -41,17 +41,6 @@ def bottom_up_coin_change_problem(tab, k):
 
 
 def top_down_coin_change_problem(tab, k):
-    def recursion(tab, n, aux_tab):
-        if aux_tab[n] != inf:
-            return aux_tab[n]
-        for x in range(len(tab)):
-            if n - tab[x] >= 0:
-                xd = recursion(tab, n-tab[x], aux_tab)
-                if xd + 1 < aux_tab[n]:
-                    aux_tab[n] = xd + 1
-                    parent[n] = n - tab[x]
-        return aux_tab[n]
-
     n = len(tab)
     aux_tab = [inf]*(k+1)
     parent = [-1]*(k+1)
@@ -60,8 +49,20 @@ def top_down_coin_change_problem(tab, k):
             aux_tab[tab[x]] = 1
             parent[tab[x]] = 0
     aux_tab[0] = 0
-    recursion(tab, k, aux_tab)
+    recursion(tab, k, aux_tab, parent)
     return print_coins(parent, k)
+
+
+def recursion(tab, n, aux_tab, parent):
+    if aux_tab[n] != inf:
+        return aux_tab[n]
+    for x in range(len(tab)):
+        if n - tab[x] >= 0:
+            xd = recursion(tab, n-tab[x], aux_tab, parent)
+            if xd + 1 < aux_tab[n]:
+                aux_tab[n] = xd + 1
+                parent[n] = n - tab[x]
+    return aux_tab[n]
 
 
 # [ENG] Additional function which shows us set of coins we took.
