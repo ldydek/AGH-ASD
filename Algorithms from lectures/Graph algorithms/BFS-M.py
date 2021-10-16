@@ -1,46 +1,52 @@
-# Elementarny algorytm przeszukiwania wszerz grafu (BFS)
-# Dla ściąganego wierzchołka z kolejki dodaje do niej wszystkich jego NIEODWIEDZONYCH sąsiadów, a algorytm się
-# kończy wówczas, gdy kolejka jest pusta i "fala" rozeszła się po wszystkich możliwych wierzchołkach.
-# Gdy graf jest niespójny  komórki w tablicy distance dla odpowiednich wierzchołków pozostaną z wartością inf.
-# Złożoność obliczeniowa: O(V^2) - reprezentacja macierzowa
+# [ENG] In Breadth First Search (BFS) algorithm we research how graph looks like. We need here an additional data
+# structure called a queue. At the beginning we add first chosen vertex and when algorithm works to the queue we will
+# add only unvisited vertex (so part if the graph which is still not researched). Below is implementation of this idea
+# for graph in adjacency matrix and list.
+# Time complexity: O(V+E) for lists and O(V^2) for matrixes, where V is set of vertices and E number of edges between them
+# Space complexity: O(V) - additional arrays of length V (visited, distance, parent)
+# [PL] W algorytmie przeszukiwania wszerz (z ang. BFS) badamy jak graf wygląda. Będziemy tutaj potrzebowali dodatkowej
+# struktury danych zwanej kolejką. Na początku do kolejki dodaję jeden wybrany wierzchołek i podczas działania algorytmu
+# dla ściąganego wierzchołka z kolejki dodaję do niej wszystkich jego nieodwiedzonych sąsiadów.
+# Złożoność obliczeniowa: O(V+E) dla list siąsiedztwa, O(V^2) - dla macierzy sąsiedztwa
 # Złożonośc pamięciowa:  O(V) - dodatkowe tablice visited, distance oraz parent
-# W celu wywołania BFS na niespójnym grafie iterować po tablicy visited do pierwszego elementu z wartością False?
 from collections import deque
 from math import inf
 
 
-def bfs(tab, s):
-    n = len(tab)
+def bfs(graph, s):
+    n = len(graph)
     distance = [inf]*n
     visited = [False]*n
-    parent = [inf]*n
-    parent[s] = -1
-    visited[s] = True
-    distance[s] = 0
+    parent = [-1]*n
+    visited[s], distance[s] = True, 0
     Q = deque()
     Q.append(s)
     while Q:
         u = Q.popleft()
         for x in range(n):
-            if tab[u][x] == 1 and visited[x] is False:
+            if graph[u][x] == 1 and visited[x] is False:
                 visited[x] = True
                 distance[x] = distance[u] + 1
                 parent[x] = u
                 Q.append(x)
-    return parent
+    return print_solution(parent, 5)
 
 
+# [ENG] This function allows us to construct path from the initial vertex to any other if it exists.
+# [PL] Ta funkcja pozwala nam odtworzyć dowolną ścieżkę w grafie między wierzchołkiem początkowym a jakimkolwiek innym
+# (o ile ścieżka istnieje).
 def print_solution(parent, x):
-    if parent[x] == inf:
-        return False
-    else:
-        if parent[x] != -1:
-            print_solution(parent, parent[x])
-        print(x, end=" ")
+    solution = []
+    if parent[x] != -1:
+        while parent[x] != -1:
+            solution.append(x)
+            x = parent[x]
+        solution.append(x)
+    return solution[::-1]
 
 
-tab = [[0, 1, 1, 0, 0, 0], [1, 0, 0, 0, 0, 0], [1, 0, 0, 1, 0, 1], [0, 0, 1, 0, 0, 1],
-       [0, 0, 0, 1, 0, 0], [0, 0, 1, 1, 0, 0]]
-print(bfs(tab, 0))
-tab1 = bfs(tab, 0)
-print(print_solution(tab1, 4))
+graph = [[0, 1, 1, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0], [1, 0, 0, 1, 0, 1, 0], [0, 0, 1, 0, 1, 1, 0],
+         [0, 0, 0, 1, 0, 0, 0], [0, 0, 1, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0]]
+print(bfs(graph, 0))
+# [ENG] We start BFS from 0 vertex
+# [PL] BFS zaczynamy od wierzchołka nr 0
