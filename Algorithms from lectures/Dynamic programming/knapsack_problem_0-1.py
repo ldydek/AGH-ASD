@@ -7,11 +7,13 @@
 # f(i, 0) = 0, because if we have weight equal to 0 we can't take anything
 # Recursion: f(i, j) = max(f(i-1, j), f(i-1, j-W[i]) + P[i])
 # Solution: aux_tab[n-1][max_w], where aux_tab is an array for keeping values of solved subproblems
+# Below is presented top-down and bottom-up approach to this problem.
 # [PL] W 0-1 problemie plecakowym mamy dany zbiór przedmiotów, które możemy ze sobą zabrać. Dodatkowo każdy przedmiot
 # ma wagę oraz cenę. Naszym celem jest wzięcie pewnej ilości przedmiotów tak, aby ich łączna cena była możliwie jak
 # największa oraz ich waga nie przekraczała zadanego limitu. Problem spróbujemy rozwiązać za pomocą programowania
 # dynamicznego. 0-1 problem plecakowy oznacza, że nie dopuszczamy kopiowania tych samym elementów (jeśli dany przedmiot
 # bierzemy, to możemy to uczynić tylko jeden raz).
+# Poniżej zaprezentowane są podejścia metodą wstępującą i zstępującą.
 from math import inf
 
 
@@ -20,6 +22,8 @@ def bottom_up_knapsack_problem(W, P, max_w):
     aux_tab = [[0 for _ in range(max_w+1)] for _ in range(n)]
     for x in range(W[0], max_w+1):
         aux_tab[0][x] = P[0]
+#   [ENG] Basic cases
+#   [PL] Warunki brzegowe
     for x in range(1, n):
         for y in range(1, max_w+1):
             aux_tab[x][y] = aux_tab[x-1][y]
