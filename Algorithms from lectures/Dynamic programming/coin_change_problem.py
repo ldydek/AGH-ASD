@@ -4,7 +4,8 @@
 # Function: f(i) - minimum quantity of coins that we need to get the sum "i"
 # Recursion: f(i) = min(f(i-tab[j]) + 1, where "tab" is an array of denominations, "j" is from 0 to length(tab)-1
 # Basic cases: quantity of coins that we need to get amount of money equal to our denominations is 1
-# Below is presented top-down and bottom-up approach to this problem.
+# Solution: aux_tab[k] where "aux_tab" is our array for keeping values of solved subproblems and "k" is our sum of
+# money. Below is presented top-down and bottom-up approach to this problem.
 # Time complexity: O(nk), where "k" is our sum of money and "n" number of denominations, so algorithm is
 # pseudo-polynomial.
 # Space complexity: O(k) - additional array in first approach or recursion call stack in the second one.
