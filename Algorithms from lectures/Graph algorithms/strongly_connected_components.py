@@ -1,6 +1,6 @@
-# [ENG] Strongly connected component (scc) is a maximum set of vertices of a graph in which for each pair of vertices
-# e.g. (u, v) there are paths from "u" to "v" and from "v" to "u". Here is the list of steps:
-# 1) Do DFS and write down when vertex is processed
+# [ENG] Strongly connected component (scc) is a maximum set of vertices in a directed graph in which for each
+# pair of vertices e.g. (u, v) there are paths from "u" to "v" and from "v" to "u". Here is the list of steps:
+# 1) Do DFS and remember when vertex is being processed
 # 2) Transpose graph
 # 3) Do DFS one more time for decreasing processing time of vertices
 # I'll try to explain it in just a few sentences. Transposing graph which has only one scc doesn't change anything,
@@ -10,8 +10,8 @@
 # impossible). All vertices visited by DFS create one scc. We repeat it until we visit every vertex.
 # Time complexity: same as DFS
 # Space complxity: O(V+E) for list representation for graph transposing and O(V) for matrix representation
-# [PL] Silnie spójna składowa (z ang. scc) jest maksymalnym zbiorem wierzchołków w grafie, w którym dowolne dwa
-# wierzchołki są osiągalne nawzajem jeden z drugiego. Oto lista kroków:
+# [PL] Silnie spójna składowa (z ang. scc) jest maksymalnym zbiorem wierzchołków w grafie skierowanym, w którym
+# dowolne dwa wierzchołki są osiągalne nawzajem jeden z drugiego. Oto lista kroków:
 # 1) Wywołaj algorytm DFS dla grafu, zapisując czasy przetworzenia wierzchołków
 # 2) Transponuj graf
 # 3) Wywołuj DFS dla wierzchołków po malejących czasach przetworzenia
