@@ -26,7 +26,7 @@ def scc(graph):
     solution = []
     for x in range(n):
         if visited[x] == 0:
-            dfs_visit(graph, x, visited, stack, logic, ctr, solution)
+            dfs(graph, x, visited, stack, logic, ctr, solution)
     transposed_graph = [[] for _ in range(n)]
     graph = graph_transposing(graph, transposed_graph)
     visited = [0]*n
@@ -35,18 +35,18 @@ def scc(graph):
         u = stack.pop()
         if visited[u] == 0:
             solution.append([])
-            dfs_visit(graph, u, visited, stack, logic, ctr, solution)
+            dfs(graph, u, visited, stack, logic, ctr, solution)
             ctr += 1
     return solution
 
 
-def dfs_visit(graph, x, visited, stack, logic, ctr, solution):
+def dfs(graph, x, visited, stack, logic, ctr, solution):
     visited[x] = 1
     if logic:
         solution[ctr].append(x)
     for y in range(len(graph[x])):
         if visited[graph[x][y]] == 0:
-            dfs_visit(graph, graph[x][y], visited, stack, logic, ctr, solution)
+            dfs(graph, graph[x][y], visited, stack, logic, ctr, solution)
     if not logic:
         stack.append(x)
 
