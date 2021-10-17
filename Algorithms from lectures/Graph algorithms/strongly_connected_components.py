@@ -8,8 +8,8 @@
 # edges between one scc and another. So if we do DFS for transposed graph, edges between scc will change directions
 # and this operation will prevent from going to different scc (through an edge which changed direction, so now it is
 # impossible). All vertices visited by DFS create one scc. We repeat it until we visit every vertex.
-# Time complexity: same as DFS
-# Space complxity: O(V+E) for list representation for graph transposing and O(V) for matrix representation
+# Time complexity: O(|V|+|E|) - same as DFS
+# Space complxity: O(|V|+|E|) for list representation for graph transposing and O(V) for matrix representation
 # [PL] Silnie spójna składowa (z ang. scc) jest maksymalnym zbiorem wierzchołków w grafie skierowanym, w którym
 # dowolne dwa wierzchołki są osiągalne nawzajem jeden z drugiego. Oto lista kroków:
 # 1) Wywołaj algorytm DFS dla grafu, zapisując czasy przetworzenia wierzchołków
