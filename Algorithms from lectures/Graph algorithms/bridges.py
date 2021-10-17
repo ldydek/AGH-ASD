@@ -33,8 +33,12 @@ def bridges(graph):
                     parent[y] = x
                     dfs(graph, parent, y)
                     low[x] = min(low[x], low[y])
+#                   [ENG] "x" - vertex, "y" -its child
+#                   [PL] "x" - wierzchołek, "y" - jego dziecko
                 elif parent[x] != y:
                     low[x] = min(low[x], visited[y])
+#                   [ENG] Back edge
+#                   [PL] Krawędź wsteczna
 
     n, time = len(graph), 0
     parent = [-1]*n
