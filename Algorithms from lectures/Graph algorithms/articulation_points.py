@@ -36,7 +36,6 @@ def articulation_points(graph):
                     dfs(graph, parent, low, solution, y)
                     if low[x] <= low[y] and parent[x] != -1:
                         solution[x] = 1
-                        low[x] = min(low[x], low[y])
                 elif parent[x] != y:
                     low[x] = min(low[x], visited[y])
         if children >= 2 and parent[x] == -1:
