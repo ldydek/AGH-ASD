@@ -49,7 +49,7 @@ def find_union_make_set(tab):
     v += 1
     n = len(tab)
     parent = [x for x in range(v)]
-    rank = [0]*(v)
+    rank = [0]*v
     for x in range(n):
         if find(parent, tab[x][0]) != find(parent, tab[x][1]):
             union(tab[x][0], tab[x][1], parent, rank)
