@@ -7,7 +7,7 @@
 # children. If so, it is an articulation point, because another part of graph is available only through the root.
 # So here is set of steps:
 # 1) Run DFS and write down visited time of each vertex
-# 2) For each vertex compute low(x):
+# 2) For each vertex compute low(v):
 # low(v) = min(d(v), min(d(u)), min(low(w))), where (v, u) is back edge in a graph and "w" is one of "v" children
 # Note that we at first omit information about back edges in a code. We only check how situation looks like in subtrees
 # rooted in vertex children. Then we update low also about possible back edges.
