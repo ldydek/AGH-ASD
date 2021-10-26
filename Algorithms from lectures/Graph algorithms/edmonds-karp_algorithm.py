@@ -6,7 +6,7 @@
 # also creates a back edge of weight equals to amount of passed substance, because later, we'll want to take this
 # substance back if there will be another path from source to sink with bigger minimum capacity.
 # Time complexity: O(|V||E|^2) - using BFS for finding paths from source to sink
-# Space complexity: O(V) - additional arrays: parent, visited and queue for BFS
+# Space complexity: O(|V|) - additional arrays: parent, visited and queue for BFS
 # [PL] Algorytm Edmondsa-Karpa pomaga nam rozwiązać problem maksymalnego przepływu w sieci przepływowej, którą możemy
 # utożsamić ze skierowanym grafem, w którym wagi krawędzi informują o pojemności danego kanału w sieci. Pomysł polega
 # na ciągłym znajdowaniu ścieżek powiększających od źródła do ujścia i dla takiej ścieżki obliczania ilości substancji,
@@ -16,7 +16,7 @@
 # o przeciwnym zwrocie i wadze równej ilości substancji, którą puściliśmy (tyle maksymalnie substancji będziemy mogli
 # ewentualnie wycofać póżniej).
 # Złożoność czasowa: O(|V||E|^2) - używając BFS do znajdowania ścieżek powiększających
-# Złożoność pamięciowa: O(V) - dodatkowe tablice: parent, visited oraz kolejka dla BFS
+# Złożoność pamięciowa: O(|V|) - dodatkowe tablice: parent, visited oraz kolejka dla BFS
 
 from math import inf
 from collections import deque
