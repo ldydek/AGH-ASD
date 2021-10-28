@@ -5,7 +5,7 @@
 # informs us about LIS from tab[0] to tab[k]
 # Solution: f(n-1) - last element of our auxiliary array
 # Note that LIS doesn't have to be unique. A sequence can have several longest increasing subsequences.
-# [Pl] Dzięki programowaniu dynamicznemu jesteśmy w stanie znaleźć najdłuższy rosnący podciąg (z ang. LIS) podanego
+# [PL] Dzięki programowaniu dynamicznemu jesteśmy w stanie znaleźć najdłuższy rosnący podciąg (z ang. LIS) podanego
 # ciągu. Funkcja, zależność rekurencyjna oraz sposób odczytywania rozwiązania są podane powyżej w języku angielskim.
 # Warto tutaj zauważyć, iż LIS nie musi być jedyny. Pewien ciąg może zawierać kilka lub nawet więcej najdłuższych
 # rosnących podciągów.
