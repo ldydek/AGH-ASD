@@ -1,9 +1,3 @@
-# Algorytm wyszukiwania binarnego w tablicy. Uwaga! W podanej tablicy musi być zachowany porządek inaczej nie będziemy
-# w stanie zlokalizować danego elementu szybciej niż przejście liniowe po całej tablicy.
-# Złożność czasowa: O(lg n)
-# Złożność pamięciowa: iteracyjnie - O(1), rekurencyjnie - O(lg n) w powodu odkładania funkcji rekurencyjnych na
-# stosie.
-
 # Binary search algorithm. Watch out! In a given array has to be an order preserved. Otherwise, we won't be able to find
 # a certain element faster than linear search of the entire array.
 # Time complexity: O(lg n)
