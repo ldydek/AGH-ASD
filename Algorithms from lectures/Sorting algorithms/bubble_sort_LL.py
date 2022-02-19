@@ -1,6 +1,5 @@
 # [ENG] Bubble sort algorithm on linked lists. Firstly, we change Python list to linked list and then sort it.
 # Time complexity: O(n^2)
-#
 # [PL] Algorytm sortowania bąbelkowego wykonany na listach jednokierunkowych. Na początku zamieniamy listę Pythonową
 # na listę jednokierunkową, a następnie ją sortujemy.
 # Złożoność czasowa: O(n^2)
