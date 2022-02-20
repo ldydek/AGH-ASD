@@ -1,8 +1,8 @@
-# [ENG] Insertion sort algorithm on linked lists. Firstly, we change Python list to linked list and then sort it.
+# [ENG] Selection sort algorithm on linked lists. Firstly, we change Python list to linked list and then sort it.
 # Whilst algorithm is running, additionally I use functions for deleting maximum element and inserting it in an
 # appropriate place.
 # Time complexity: O(n^2)
-# [PL] Sortowanie przez wstawianie wykonane na listach jednokierunkowych. Na początku zmieniamy listę w Pythonie na
+# [PL] Sortowanie przez wybieranie wykonane na listach jednokierunkowych. Na początku zmieniamy listę w Pythonie na
 # listę jednokierunkową a następnie wykonujemy samo sortowanie. Podczas działania algorytmu korzystam w pomocniczych
 # funkcji, które usuwają maksimum z jednej listy i dodają do drugiej w odpowiednie miejsce.
 # Złożoność czasowa: O(n^2)
