@@ -62,7 +62,7 @@ def deleting_max_from_list(A):
     return x, A
 
 
-def insertion_sort(A):
+def selection_sort(A):
     ctr, start = 0, A
     B = None
     while start:
@@ -78,5 +78,4 @@ def insertion_sort(A):
 tab = [2, 7, 1, 3, 20, 4, 30, 1, 1]
 A = tab2list(tab)
 print_list(A)
-print_list(insertion_sort(A))
-
+print_list(selection_sort(A))
