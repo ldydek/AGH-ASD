@@ -1,4 +1,4 @@
-def min_max(tab):
+def ex04(tab):
     n = len(tab)
     if n == 1:
         return tab[0], tab[0]
@@ -16,4 +16,4 @@ def min_max(tab):
 
 
 tab = [2, 10, 4, 7, -4, 300, 40, 5]
-print(min_max(tab))
+print(ex04(tab))
