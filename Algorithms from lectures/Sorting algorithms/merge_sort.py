@@ -50,7 +50,7 @@ def merge_sort(tab):
     n = len(tab)
     aux_tab = [None]*n
     reku(tab, 0, n-1)
-    return aux_tab
+    return tab
 
 
 tab = [4, 3, 1, 9, 3, 5, 10, 15, 2, 34, 2, 14]
