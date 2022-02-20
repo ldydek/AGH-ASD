@@ -1,3 +1,6 @@
+# [ENG] Reversing a linked list.
+# [PL] Odwracanie listy odsyłaczowej.
+
 class Node:
     def __init__(self):
         self.value = 0
@@ -22,7 +25,7 @@ def print_list(A):
     print("None")
 
 
-def reversing_linked_list(A):
+def ex05(A):
     if not A:
         return None
     elif not A.next:
@@ -42,4 +45,4 @@ def reversing_linked_list(A):
 tab = [1, 10, 2, 3, 4, 2]
 A = tab2list(tab)
 print_list(A)
-print_list(reversing_linked_list(A))
+print_list(ex05(A))
