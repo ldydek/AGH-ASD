@@ -1,8 +1,8 @@
 # [ENG] This time I slightly modify binary search. If I find an appropriate number I move to the left and continue
 # searching in that part of an array.
 # Time complexity: O(lg n)
-# [PL] Tym razem lekko modyfikuję wyszukiwanie binarne. Jeżeli znajdę szukaną liczbę kontynuuję wyszukiwanie binarne
-# w tablicy, poruszając się w lewo.
+# [PL] Tym razem lekko modyfikuję wyszukiwanie binarne. Jeżeli znajdę szukaną liczbę kontynuuję wyszukiwanie w tablicy,
+# poruszając się w lewo.
 # Złożoność czasowa: O(lg n)
 
 
