@@ -1,3 +1,6 @@
+# [ENG] Detecting cycle in a linked list.
+# [PL] Wykrywanie cyklu w liście jednokierunkowej.
+
 class Node:
     def __init__(self):
         self.value = 0
