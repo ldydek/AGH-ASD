@@ -1,3 +1,6 @@
+# [ENG] Removing duplicates.
+# [PL] Usuwanie duplikatów.
+
 class Node:
     def __init__(self):
         self.value = 0
@@ -67,6 +70,7 @@ def quicksort(A):
     return A
 
 
+# O(n lg n)
 def ex034(A):
     quicksort(A)
     back = None
