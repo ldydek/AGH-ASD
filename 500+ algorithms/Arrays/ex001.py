@@ -1,4 +1,4 @@
-# One approach is to use hashing and second one is to use sorting.
+# One approach is to use hashing and second one is to use sorting and binary search.
 
 # O(n)
 def ex001_1(tab, k):
