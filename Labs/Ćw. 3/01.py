@@ -1,4 +1,5 @@
-# Quicksort with O(log n) additional memory in a call stack.
+# [ENG] Quicksort with at most O(log n) additional memory in a call stack.
+# [PL] Sortowanie szybkie używające najwyżej O(log n) dodatkowej pamięci na stosie.
 
 def partition(tab, p, r):
     x, i = tab[r], p
@@ -10,14 +11,14 @@ def partition(tab, p, r):
     return i
 
 
-def quicksort(tab, p, r, k):
+def ex01(tab, p, r):
     while p < r:
         q = partition(tab, p, r)
         if q-p > r+1-q:
-            quicksort(tab, q+1, r, k+1)
+            ex01(tab, q+1, r)
             r = q - 1
         else:
-            quicksort(tab, p, q-1, k+1)
+            ex01(tab, p, q-1)
             p = q + 1
     return tab
 
