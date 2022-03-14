@@ -1,3 +1,7 @@
+# [ENG] Looking for two elements with a certain sum in a sorted array.
+# [PL] Szukanie dwóch elementów o określonej sumie w posortowanej tablicy.
+# O(n)
+
 def ex03(tab, k):
     n = len(tab)
     a, b = 0, n-1
