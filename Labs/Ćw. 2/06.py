@@ -1,3 +1,4 @@
+# O(n log n)
 def inclusion(x, y):
     if x[0] <= y[0] and x[1] >= y[1]:
         return True
