@@ -32,12 +32,10 @@ def ex06(L):
     for x in range(n):
         L[x] = (L[x][0], L[x][1], x)
     quicksort(L, 0, len(L)-1, 1)
-    for x in range(n):
-        L[x] = (L[x][0], L[x][1], L[x][2], x)
     index = diff = 0
     for x in range(n):
-        if L[x][3] - L[x][2] >= diff:
-            diff = L[x][3] - L[x][2]
+        if x - L[x][2] >= diff:
+            diff = x - L[x][2]
             index = x
     return L[index][0], L[index][1]
 
