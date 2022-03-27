@@ -1,4 +1,3 @@
-# Lukasz Dydek
 # Pomysł polega na dodaniu pierwszych "k+1" elementów do tablicy i przekształceniu jej w kopiec binarny typu min.
 # Następnie ściągam z kopca korzeń i dodaję kolejny element, przy okazji przywracając własność kopca typu min.
 # Gdy w kopcu zostanie mi "k+1" ostatnich elementów listy odsyłaczowej, to całość sortuję algorytmem sortowania przez
