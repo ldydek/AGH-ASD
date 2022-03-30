@@ -1,3 +1,6 @@
+# Time complexity: O(n)
+# Space complexity: O(n)
+
 def insertion_sort(tab):
     n = len(tab)
     for x in range(1, n):
