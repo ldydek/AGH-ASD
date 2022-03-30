@@ -1,6 +1,6 @@
 # Rozkład liczb na całym przedziale nie jest jednostajny, lecz mamy zagwarantowane, że wewnątrz pewnego przedziału już tak. Możemy więc
 # podzielić dany obszar na "n" mniejszych przedziałów, w których liczby będą pochodzić z rozkładu jednostajnego. W każdym takim przedziale
-# liczby sortujemy algorytmem sortowania kubełkowego. Na koniec łączymy podane obszary i dostajemy posortowaną tablicę wejściową
+# liczby sortujemy algorytmem sortowania kubełkowego. Na koniec łączymy podane obszary i dostajemy posortowaną tablicę wejściową.
 # Time complexity: O(n)
 # Space complexity: O(n)
 
