@@ -22,6 +22,7 @@ def bucket_sort(tab):
     interval = (maxi - mini) // n
     for x in range(n):
         buckets[int((tab[x]-mini)//interval)].append(tab[x])
+    n += 1
     for x in range(n):
         insertion_sort(buckets[x])
     ctr = 0
@@ -44,5 +45,5 @@ def insertion_sort(tab):
     return tab
 
 
-tab = [78, 17, 39, 26, 72, 94, 21, 12, 23, 68, 99, 95, 97, 99]
+tab = [78, 17, 39, 26, 72, 94, 21, 12, 23, 68, 99, 95, 99, 97]
 print(bucket_sort(tab))
