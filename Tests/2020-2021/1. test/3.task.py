@@ -16,11 +16,12 @@ def insertion_sort(tab):
     return tab
 
 
-def bucket_sort(buckets, tab):
-    for x in range(len(buckets)):
-        buckets[x] = []
+def bucket_sort(tab, mini):
+    n = len(tab)
+    buckets = [[] for _ in range(n+1)]
+    interval = 1 / n
     for x in range(len(tab)):
-        buckets[int(tab[x] * 10) % 10].append(tab[x])
+        buckets[int((tab[x]-mini-1)/interval)].append(tab[x])
     for x in range(len(buckets)):
         insertion_sort(buckets[x])
     ctr = 0
@@ -34,11 +35,11 @@ def bucket_sort(buckets, tab):
 def SortTab(T, P):
     n = len(T)
     aux_tab = [[] for _ in range(n)]
-    buckets = [[] for _ in range(10)]
     for x in range(n):
         aux_tab[int(T[x]) - 1].append(T[x])
     for x in range(len(aux_tab)):
-        bucket_sort(buckets, aux_tab[x])
+        if len(aux_tab[x]) > 0:
+            bucket_sort(aux_tab[x], x)
     ctr = 0
     for x in range(len(aux_tab)):
         for y in range(len(aux_tab[x])):
@@ -50,4 +51,3 @@ def SortTab(T, P):
 T = [6.1, 1.2, 1.5, 3.5, 4.5, 2.5, 3.1, 7.8]
 P = [(1, 5, 0.75), (4, 8, 0.25)]
 print(SortTab(T, P))
-
