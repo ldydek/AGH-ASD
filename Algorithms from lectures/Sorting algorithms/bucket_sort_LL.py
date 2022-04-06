@@ -45,21 +45,35 @@ def inserting_element(A, X):
     return X
 
 
+def get_min_max(A):
+    mini, maxi = 10**10, -10**10
+    number_of_elements = 0
+    while A:
+        number_of_elements += 1
+        mini = min(mini, A.value)
+        maxi = max(maxi, A.value)
+        A = A.next
+    return mini, maxi, number_of_elements
+
+
 def bucket_sort(A):
-    buckets = [None] * 10
+    mini, maxi, n = get_min_max(A)
+    interval = (maxi - mini) / n
+    buckets = [None] * (n+1)
     back, front = A, A.next
     while front:
-        buckets[back.value//10] = inserting_element(buckets[back.value//10], back)
+        buckets[int((back.value-mini)//interval)] = inserting_element(buckets[int((back.value-mini)//interval)], back)
         back = front
         front = front.next
-    buckets[back.value//10] = inserting_element(buckets[back.value//10], back)
+    buckets[int((back.value-mini)//interval)] = inserting_element(buckets[int((back.value-mini)//interval)], back)
     start = None
-    for x in range(10):
+    n += 1
+    for x in range(n):
         if buckets[x]:
             start = buckets[x]
             break
     jump, k = None, False
-    for x in range(10):
+    for x in range(n):
         if buckets[x] and k:
             jump.next = buckets[x]
         while buckets[x]:
@@ -73,4 +87,3 @@ tab = [78, 17, 39, 26, 72, 94, 21, 12, 23, 68, 7, 99, 95, 97, 99, 7]
 A = tab2list(tab)
 print_list(A)
 print_list(bucket_sort(A))
-
