@@ -16,13 +16,16 @@
 
 def bucket_sort(tab):
     n = len(tab)
-    buckets = [[] for _ in range(10)]
+    buckets = [[] for _ in range(n+1)]
+    mini = min(tab)
+    maxi = max(tab)
+    interval = (maxi - mini) // n
     for x in range(n):
-        buckets[tab[x]//10].append(tab[x])
-    for x in range(10):
+        buckets[int((tab[x]-mini)//interval)].append(tab[x])
+    for x in range(n):
         insertion_sort(buckets[x])
     ctr = 0
-    for x in range(10):
+    for x in range(n):
         for y in range(len(buckets[x])):
             tab[ctr] = buckets[x][y]
             ctr += 1
