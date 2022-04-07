@@ -1,7 +1,7 @@
 # f(i, j) - funkcja sprawdzająca, czy w tablicy A od A[0] do A[i] istnieje podciąg sumujący się do j
 # f(i, j) = f(i-1, j) or f(i-1, j-A[i]) - albo dany element bierzemy do sumy, albo nie
 
-def sum_1(tab, t):
+def ex02(tab, t):
     n = len(tab)
     aux_tab = [[0 for _ in range(t+1)] for _ in range(n)]
     if tab[0] < t:
@@ -18,4 +18,4 @@ def sum_1(tab, t):
 
 
 tab = [3, 2, 4, 7, 8]
-print(sum_1(tab, 1))
+print(ex02(tab, 1))
