@@ -1,6 +1,8 @@
 # f(i) - minimalna ilość monet potrzebnych do wydania kwoty "i" złotych
 # f(i) = min(f(i-A[k]), gdzie A to tablica nominałów
 # Warunki brzegowe: f(A[k]) = 1, 0 <= k <= len(A)-1
+# Złożoność obliczeniowa: O(nT)
+# Złożoność pamięciowa: O(T)
 
 def ex06(A, T):
     n = len(A)
