@@ -8,6 +8,7 @@
 # więc ostatecznie sum(A[x]) + y <= 2L
 
 
+# pomocnicza funkcja, dzięki której znajdę odpowiedni indeks w tablicy podproblemów
 def find_index(aux_tab):
     n = len(aux_tab)
     for x in range(n - 1, -1, -1):
@@ -26,6 +27,7 @@ def ex03(A, L):
         return False
     aux_tab[0][L-A[0]] = 1
     aux_tab[0][L] = 1
+    # warunki brzegowe
     for x in range(1, n):
         for y in range(L+1):
             if y + A[x] - A[x-1] <= L:
@@ -47,6 +49,7 @@ def print_solution(aux_tab, indexes, solution, A):
         else:
             solution[x] = 1
             indexes = (indexes[0]-1, indexes[1]+A[x]-A[x-1])
+    # na sam koniec sprawdzam "ręcznie", na który pas ma wjechać pierwsze auto (tam gdzie jest miejsce)
     sum = 0
     for x in range(1, n):
         if solution[x] == 1:
