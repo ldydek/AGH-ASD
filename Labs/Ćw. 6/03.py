@@ -1,6 +1,6 @@
 # f(i, j) - funkcja określająca, czy samochody od A[0] do A[i] mogą wjechać na dwa pasy tak, aby na górnym pozostało
 # "j" miejsca wolnego
-# Rekurencja: f(i, j) = f(i-1, j+A[i]) or f(i-1, j), jeśli j+A[i] <= L (auta mieszczą się na górnym pokładnie) oraz
+# Rekurencja: f(i, j) = f(i-1, j+A[i]) or f(i-1, j), jeśli j+A[i] <= L (auta mieszczą się na górnym pokładzie) oraz
 # sum(A[x])+y <= 2L (warunek na miejsce dla auta na drugim pasie), ponieważ:
 # L-j - miejsce jakie zajmują auta na pierwszym pasie,
 # sum(A[x-1]-(L-y) - miejsce jakie zajmują auta na drugim pasie,
