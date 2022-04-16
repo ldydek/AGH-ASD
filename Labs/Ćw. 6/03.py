@@ -23,6 +23,7 @@ def ex03(A, L):
         A[x] += A[x-1]
     aux_tab = [[0 for _ in range(L+1)] for _ in range(n)]
     solution = [-1] * n
+    # jeśli pierwszy pojazd jest za długi nic nie zdziałamy
     if L < A[0]:
         return False
     aux_tab[0][L-A[0]] = 1
