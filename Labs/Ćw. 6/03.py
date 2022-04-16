@@ -6,6 +6,8 @@
 # sum(A[x-1]-(L-y) - miejsce jakie zajmują auta na drugim pasie,
 # więc sprawdzamy, czy możemy na ten drugi pas dodać kolejne auto - sum(A[x]) - L + y <= L
 # więc ostatecznie sum(A[x]) + y <= 2L
+# Złożoność czasowa: O(nL)
+# Złożoność pamięciowa: O(nL)
 
 
 # pomocnicza funkcja, dzięki której znajdę odpowiedni indeks w tablicy podproblemów
