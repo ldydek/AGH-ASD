@@ -3,6 +3,8 @@
 # podciąg, w którym kolejne klocki w całości zawierają się w poprzednich.
 # Rekurencja: f(i) = max(f(i-k)) + 1, 1 <= k <= i
 # Rozwiązanie: f(n-1), gdzie "n" to ilość wszystkich klocków
+# Złożoność czasowa: O(n^2)
+# Złożoność pamięciowa: O(n)
 
 
 def include(x, y):
