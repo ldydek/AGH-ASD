@@ -12,6 +12,7 @@
 # Złożoność pamięciowa: O(k) - kopiec cały czas długości "k+1"
 # Przypadek k = 1 rozważam osobno i dla niego przechodzę liniowo listę, ewentualnie przepinając wskaźniki, gdy wartość
 # węzła będzie większa od następnego.
+# Passed all tests.
 
 
 def SortH(p,k):
