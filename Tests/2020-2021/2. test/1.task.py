@@ -1,11 +1,14 @@
-# f(i, j) - maksymalna liczba studentów, jaka może mieszkać w akademikach ze zbioru od A[0] do A[i], nie przekraczając
-# ceny "j"
-# albo dany akademik budejemy albo nie, więc rekursja wygląda następująco:
-# f(i, j) = max(f(i-1, j), f(prev(i), j-cena(i))+student(i))
-# prev(i) - pierwszy akademik na lewo od rozważanego, który na niego nie nachodzi (niekoniecznie jest to i-1!)
-# zadanie w pewien sposób podobne do problemu plecakowego
-# Złożonośc czasowa: O(np + n log n)
-# Złożoność pamięciowa: O(np)
+# Dynamic programming solution.
+# f(i, j) - maximum quantity of students, that can live in students house from the set {A[0],...,A[i]} without exceeding
+# price "j"
+# either we given house include in our solution or not, so recursion is as follows:
+# f(i, j) = max(f(i-1, j), f(prev(i), j-price(i))+student(i))
+# prev(i) - first house on the left from considered, which not intersects (not necessarily it is A[i-1]!)
+# price(i) - price of building "i" house
+# student(i) - number of students who can live in "i" house
+# task in some way similar to knapsack problem
+# Time complexity: O(np + n log n)
+# Space complexity: O(np)
 # Passed all tests
 
 def binary_search(tab, k):
