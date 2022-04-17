@@ -3,6 +3,7 @@
 # liczby sortujemy algorytmem sortowania kubełkowego. Na koniec łączymy podane obszary i dostajemy posortowaną tablicę wejściową.
 # Time complexity: O(n)
 # Space complexity: O(n)
+# Passed all tests
 
 
 def insertion_sort(tab):
