@@ -1,6 +1,6 @@
-# Rozkład liczb na całym przedziale nie jest jednostajny, lecz mamy zagwarantowane, że wewnątrz pewnego przedziału już tak. Możemy więc
-# podzielić dany obszar na "n" mniejszych przedziałów, w których liczby będą pochodzić z rozkładu jednostajnego. W każdym takim przedziale
-# liczby sortujemy algorytmem sortowania kubełkowego. Na koniec łączymy podane obszary i dostajemy posortowaną tablicę wejściową.
+# Number distribution in the entire range is not uniform, but we are guaranteed that within unitry interval it is. 
+# So we can divide this range to "n" interval and in each interval sort elements with bucket sort. At the end, we merge
+# all unitry intervals.
 # Time complexity: O(n)
 # Space complexity: O(n)
 # Passed all tests
