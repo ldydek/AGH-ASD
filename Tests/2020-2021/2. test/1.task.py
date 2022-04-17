@@ -1,6 +1,6 @@
 # Dynamic programming solution.
-# f(i, j) - maximum quantity of students, that can live in students house from the set {A[0],...,A[i]} without exceeding
-# price "j"
+# f(i, j) - maximum quantity of students, that can live in student houses considering the set {A[0],...,A[i]}
+# without exceeding price "j"
 # either we given house include in our solution or not, so recursion is as follows:
 # f(i, j) = max(f(i-1, j), f(prev(i), j-price(i))+student(i))
 # prev(i) - first house on the left from considered, which not intersects (not necessarily it is A[i-1]!)
