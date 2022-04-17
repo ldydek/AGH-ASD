@@ -1,3 +1,7 @@
+# At the beginning, with the use of "quickselect" function in O(n^2) I check, which numbers would be in the upper right and bottom
+# left corners after sorting entire matrix. Later, I create proper main diagonal adding elements on their appropriate places.
+# At the end, I iterate through two halves (main diagonal divides them) and if values are not suitable I am forced to swap these
+# elements.
 # Time complexity: O(n^2)
 # Space complexity: O(1)
 # Passed tests
