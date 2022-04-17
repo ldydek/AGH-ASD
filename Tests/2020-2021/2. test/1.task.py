@@ -83,4 +83,3 @@ def print_solution(T, aux_tab, p):
 T = [(2, 1, 5, 3), (3, 7, 9, 2), (2, 8, 11, 1)]
 p = 6
 print(select_buildings(T, p))
-
