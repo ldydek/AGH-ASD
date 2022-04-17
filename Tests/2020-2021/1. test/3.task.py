@@ -1,6 +1,6 @@
 # Number distribution in the entire range is not uniform, but we are guaranteed that within unitry interval it is. 
 # So we can divide this range to "n" interval and in each interval sort elements with bucket sort. At the end, we merge
-# all unitry intervals.
+# all unitry intervals and finally get sorted array.
 # Time complexity: O(n)
 # Space complexity: O(n)
 # Passed all tests
