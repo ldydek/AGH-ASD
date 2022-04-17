@@ -1,6 +1,7 @@
 # Time complexity: O(n^2)
 # Space complexity: O(1)
 
+
 def partition(tab, p, r):
     p = (p//len(tab), p % len(tab))
     r = (r//len(tab), r % len(tab))
@@ -25,7 +26,7 @@ def partition(tab, p, r):
 
 def quick_select(tab, p, r, i):
     if p == r:
-        return tab[p]
+        return tab[p//len(tab)][p%len(tab)]
     q = partition(tab, p, r)
     k = q - p + 1
     if k == i:
@@ -86,8 +87,10 @@ def Median(T):
             if b[0] == b[1]:
                 b = (b[0]+1, 0)
         T[a[0]][a[1]], T[b[0]][b[1]] = T[b[0]][b[1]], T[a[0]][a[1]]
+    if T[a[0]][a[1]] < T[b[0]][b[1]]:
+        T[a[0]][a[1]], T[b[0]][b[1]] = T[b[0]][b[1]], T[a[0]][a[1]]
     return T
 
 
-T = [[2, 3, 5], [7, 11, 13], [17, 19, 23]]
-print(Median(T))
+tab = [[2, 3, 5], [7, 11, 13], [17, 19, 23]]
+print(Median(tab))
