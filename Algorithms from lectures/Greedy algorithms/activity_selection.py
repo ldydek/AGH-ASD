@@ -1,7 +1,7 @@
 # Greedy approach
 # At the beginning, I sort activities increasingly with ending time. Later, I greedily choose this activity, which
 # starting time is greater or equal to ending time of the previous one. First activity is always included.
-# Time complexity: O(n)
+# Time complexity: O(n log n)
 # Space complexity: additional array that keeps solution - could be O(n)
 
 
