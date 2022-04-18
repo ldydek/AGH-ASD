@@ -3,6 +3,7 @@
 # solution: max(f(k), f(m)+f(n)+k.value), where "k" is one of tree nodes and "m", "n" are its children
 # case f(m)+f(n) will occur if both "m" and "n" nodes will be included in the best path
 # edge case: f(v) = v.value, when "v" is a leaf
+# note that considered tree doesn't have to be binary!
 # Time complexity: O(v)
 # Space complexity: O(h), where "h" is the height of a tree
 from math import inf
