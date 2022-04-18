@@ -1,17 +1,9 @@
-# Pomysł polega na dodaniu pierwszych "k+1" elementów do tablicy i przekształceniu jej w kopiec binarny typu min.
-# Następnie ściągam z kopca korzeń i dodaję kolejny element, przy okazji przywracając własność kopca typu min.
-# Gdy w kopcu zostanie mi "k+1" ostatnich elementów listy odsyłaczowej, to całość sortuję algorytmem sortowania przez
-# kopcowanie i węzły w posortowanej tablicy dodaję do rozrastającej się posortowanej listy jednokierunkowej.
-# Złożonośc czasowa: O((n-k) log k + k log k + k) = O(n log k)
-# O(k) - utworzenie kopca
-# O((n-k) log k) - operacje na kopcu
-# O(k log k) sortowanie przez kopcowanie
-# dla k = O(1) mamy O(n)
-# dla k = O(log n) mamy O(n log(log n))
-# dla k = O(n) mamy O(n log n)
-# Złożoność pamięciowa: O(k) - kopiec cały czas długości "k+1"
-# Przypadek k = 1 rozważam osobno i dla niego przechodzę liniowo listę, ewentualnie przepinając wskaźniki, gdy wartość
-# węzła będzie większa od następnego.
+# The idea is to create a min heap of size "k+1". Later, I swap the root with the next element of a list and repair 
+# heap property. At the end, when I can't add any elements more I sort entire heap using heap sort and merge sorted
+# list with sorted array/heap. Case when k=1 I consider differently, because it's faster to do one iteration of bubble
+# sort with swapping elements, when values are not in a suitable order.
+# Time complexity: O(n log k)
+# Space complexity: O(k)
 # Passed all tests.
 
 
