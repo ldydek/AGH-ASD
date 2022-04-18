@@ -8,6 +8,7 @@
 # Złożoność czasowa: O(nk)
 # Złożoność pamięciowa: O(nk), gdzie "k" to suma energii ze wszystkich kamieni
 # Bonusowo odtwarzanie rozwiązania.
+# Do poprawy złożoności na O(n^2) - marnotrawstwo pamięci
 from math import inf
 
 
