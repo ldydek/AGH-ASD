@@ -1,10 +1,10 @@
-# Na samym początku sortuję litery w każdym słowie z tablicy leksykograficznie. Następnie tworzę "n+1" kubełków.
-# Do i-tego kubełka wrzucam wszystkie napisy o długości "i". W każdym kubełku elementy sortuję algorytmem sortowania
-# pozycyjnego. Potem sprawdzam w każdym kubełku ile takich samych napisów  znajduje się obok siebie, inkrementując
-# licznik (jeśli elementy są sobie równe pierwotnie musiały być anagramami). Na sam koniec biorę maksimum ze wszystkich
-# wyników w kubełkach.
-# Złożoność czasowa: O(n)
-# Złożoność pamięciowa: O(n)
+# Firstly, I sort letters in each word alphabetically, for instance "wilk" will be "iklw". Later, I create "n+1" 
+# buckets. To "i-th" bucket I put all strings of the length "i". In each bucket I sort elements using radix sort. Later,
+# I check how many the same strings is next to each other (if strings are the same they had to be anagrams previously).
+# At the end, I count maximum value from all buckets.
+# Time complexity: O(n)
+# Space complexity: O(n)
+# Passed all tests
 from kol1btesty import runtests
 
 
@@ -27,25 +27,18 @@ def count_sort(strings, B, C, index):
     for x in range(len(B)):
         B[x] = 0
     for x in range(len(strings)):
-        if len(strings[x]) <= index:
-            B[0] += 1
-        else:
-            B[ord(strings[x][index])-96] += 1
+        B[ord(strings[x][index])-97] += 1
     for x in range(1, len(B)):
         B[x] += B[x-1]
     for x in range(len(strings)-1, -1, -1):
-        if len(strings[x]) <= index:
-            C[B[0]-1] = strings[x]
-            B[0] -= 1
-        else:
-            C[B[ord(strings[x][index])-96]-1] = strings[x]
-            B[ord(strings[x][index]) - 96] -= 1
+        C[B[ord(strings[x][index])-97]-1] = strings[x]
+        B[ord(strings[x][index]) - 97] -= 1
     for x in range(len(strings)):
         strings[x] = C[x]
 
 
 def string_sort(strings, B, C):
-    max_length = len(strings[0])
+    max_length = len(strings[0]) - 1
     for x in range(max_length, -1, -1):
         count_sort(strings, B, C, x)
     return strings
@@ -89,5 +82,5 @@ def f(T):
     return solution + 1
 
 
-# Zamien all_tests=False na all_tests=True zeby uruchomic wszystkie testy
+# Change all_tests=False to all_tests=True if you want to run all tests.
 runtests(f, all_tests=True)
