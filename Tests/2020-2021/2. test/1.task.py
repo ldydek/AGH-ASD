@@ -30,7 +30,7 @@ def binary_search(tab, k):
 def show_previous(T, prev):
     for x in range(len(T)):
         T[x] = (T[x][0], T[x][1], T[x][2], T[x][3], x)
-    T.sort(key=lambda x: x[2], reverse=True)
+    T.sort(key=lambda x: x[2])
     T.sort(key=lambda x: x[1])
     for x in range(len(T)):
         sol = binary_search(T, T[x])
