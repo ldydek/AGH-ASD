@@ -4,7 +4,7 @@
 # recursion: f(i, j) = min(max(f(i, k), f(k+1, j), |sum(i, j)|), where sum(i, j) means sum of all elements between
 # A[i] and A[j] also including A[i] and A[j] and i <= k <= j-1
 # solution: f(0, n-1)
-# In other words we want to find f(i, j), so we try to divide (A[i],...,A[j]) into to parts of the lowest temporary
+# In other words we want to find f(i, j), so we try to divide (A[i],...,A[j]) into two parts of the lowest temporary
 # scores and these subproblems were computed before and can be included in a final solution (optimal substructure).
 # Passed all tests
 from math import inf
