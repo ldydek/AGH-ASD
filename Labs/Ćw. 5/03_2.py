@@ -1,4 +1,4 @@
-# LIS - nie dynamicznie, ale badziej zachłannie wykorzystująć wyszukiwanie binarne
+# LIS length - not dynamically but rather greedily with binary search
 # O(n lg n) !
 
 from math import inf
