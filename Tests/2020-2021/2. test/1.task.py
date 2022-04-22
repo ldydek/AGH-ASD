@@ -13,14 +13,20 @@
 from math import inf
 
 
-def choose(tab, k):
-    index = False
-    diff = inf
-    for x in range(len(tab)):
-        if k[1] - tab[x][2] <= diff and k[1] > tab[x][2]:
-            diff = k[1] - tab[x][2]
-            index = x
-    return index
+def binary_search(tab, k):
+    n = len(tab)
+    l, r = 0, n - 1
+    index = None
+    while l <= r:
+        m = (l + r) // 2
+        if tab[m][2] >= k[1]:
+            r = m - 1
+        else:
+            index = m
+            l = m + 1
+    if index is not None:
+        return index
+    return False
 
 
 def show_previous(T, prev):
@@ -28,7 +34,7 @@ def show_previous(T, prev):
         T[x] = (T[x][0], T[x][1], T[x][2], T[x][3], x)
     T.sort(key=lambda x: x[2])
     for x in range(len(T)):
-        sol = choose(T, T[x])
+        sol = binary_search(T, T[x])
         if sol is not False:
             prev[x] = sol
 
@@ -52,7 +58,7 @@ def select_buildings(T, p):
                     aux_tab[x][y] = max(aux_tab[x][y], aux_tab[prev[x]][y-T[x][3]]+students(T[x]))
                 else:
                     aux_tab[x][y] = max(aux_tab[x][y], students(T[x]))
-    return aux_tab[n-1][p-1]
+    return print_solution(T, aux_tab, p-1, prev)
 
 
 def print_solution(T, aux_tab, p, prev):
