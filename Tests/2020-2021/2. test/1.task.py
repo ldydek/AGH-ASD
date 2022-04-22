@@ -10,46 +10,31 @@
 # Time complexity: O(np + n log n)
 # Space complexity: O(np)
 # Passed all tests
+from math import inf
 
-def binary_search(tab, k):
-    n = len(tab)
-    l, r = 0, n - 1
-    index = None
-    while l <= r:
-        m = (l + r) // 2
-        if tab[m][2] >= k[1]:
-            r = m - 1
-        else:
-            index = m
-            l = m + 1
-    if index is not None:
-        return index
-    return False
+
+def choose(tab, k):
+    index = False
+    diff = inf
+    for x in range(len(tab)):
+        if k[1] - tab[x][2] <= diff and k[1] > tab[x][2]:
+            diff = k[1] - tab[x][2]
+            index = x
+    return index
 
 
 def show_previous(T, prev):
     for x in range(len(T)):
         T[x] = (T[x][0], T[x][1], T[x][2], T[x][3], x)
     T.sort(key=lambda x: x[2])
-    T.sort(key=lambda x: x[1])
     for x in range(len(T)):
-        sol = binary_search(T, T[x])
+        sol = choose(T, T[x])
         if sol is not False:
             prev[x] = sol
 
 
-def surface(x):
+def students(x):
     return (x[2]-x[1])*x[0]
-
-
-def find_index(aux_tab):
-    index, val = None, 0
-    n = len(aux_tab)
-    for x in range(len(aux_tab[n-1])):
-        if aux_tab[n-1][x] > val:
-            val = aux_tab[n-1][x]
-            index = x
-    return index
 
 
 def select_buildings(T, p):
@@ -58,24 +43,32 @@ def select_buildings(T, p):
     show_previous(T, prev)
     aux_tab = [[0 for _ in range(p)] for _ in range(n)]
     for x in range(T[0][3], p):
-        aux_tab[0][x] = surface(T[0])
+        aux_tab[0][x] = students(T[0])
     for x in range(1, n):
         for y in range(p):
             aux_tab[x][y] = aux_tab[x-1][y]
             if y >= T[x][3]:
-                aux_tab[x][y] = max(aux_tab[x][y], aux_tab[prev[x]][y-T[x][3]]+surface(T[x]))
-    index = find_index(aux_tab)
-    return print_solution(T, aux_tab, index)
+                if prev[x] != -1:
+                    aux_tab[x][y] = max(aux_tab[x][y], aux_tab[prev[x]][y-T[x][3]]+students(T[x]))
+                else:
+                    aux_tab[x][y] = max(aux_tab[x][y], students(T[x]))
+    return aux_tab[n-1][p-1]
 
 
-def print_solution(T, aux_tab, p):
+def print_solution(T, aux_tab, p, prev):
+    n = len(aux_tab)
     solution = []
-    for x in range(len(aux_tab)-1, 0, -1):
-        if aux_tab[x][p] != aux_tab[x-1][p]:
-            solution.append(T[x][4])
-            p -= T[x][3]
-    if T[0][3] <= p:
-        solution.append(T[0][4])
+    k = n-1
+    while k != 0 and k != -1:
+        if aux_tab[k][p] != aux_tab[k-1][p]:
+            solution.append(T[k][4])
+            p -= T[k][3]
+            k = prev[k]
+        else:
+            k -= 1
+    if k == 0:
+        if p >= T[0][3]:
+            solution.append(T[0][4])
     solution.sort()
     return solution
 
