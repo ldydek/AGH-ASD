@@ -26,6 +26,7 @@ def parent(x):
     return (x-1)//2
 
 
+# building a min binary heap
 def build_min_heap(heap):
     n = len(heap)
     for x in range(parent(n-1), -1, -1):
@@ -45,6 +46,7 @@ def min_heapify(heap, i, n):
         min_heapify(heap, insert, n)
 
 
+# adding a new element with infinity value at the end of each linked list
 def add_element(tab):
     for x in range(len(tab)):
         jump = tab[x]
