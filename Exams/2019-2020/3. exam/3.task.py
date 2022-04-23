@@ -4,6 +4,8 @@
 # a function which will restore a binary heap property (heapify) and this element, which was deleted, I add at the end
 # of a new sorted linked list. I repeat this until I won't get node with infinity value in a root. If this happen, it
 # means that this heap consists only of infinity nodes and entire new sorted linked list is complete.
+# Time complexity: O(n log k) 
+# Space complexity: O(k) 
 # Passed all tests
 
 from math import inf
