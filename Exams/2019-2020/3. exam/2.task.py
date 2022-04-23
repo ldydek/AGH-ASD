@@ -1,6 +1,8 @@
 # f(i) - minimal height we can obtain considering "i" first bricks and including "i-th" brick to the solution
 # recursion: f(i) = max(f(k)) + 1, where 0 <= k <= i-1 and A[k] can contain A[i]
 # solution: max(f(i)), where 0 <= i <= n-1 ("n" is the number of bricks)
+# Time complexity: O(n^2) 
+# Space complexity: O(n) 
 # Passed all tests
 
 def include(x, y):
