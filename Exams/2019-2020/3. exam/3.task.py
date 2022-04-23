@@ -5,6 +5,7 @@
 # of a new sorted linked list. I repeat this until I won't get node with infinity value in a root. If this happen, it
 # means that this heap consists only of infinity nodes and entire new sorted linked list is complete.
 # Passed all tests
+
 from math import inf
 
 
