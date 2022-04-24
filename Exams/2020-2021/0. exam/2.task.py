@@ -5,7 +5,7 @@
 # to use two edges more to get to these subtrees if they exist of course
 # I store computed values for each node in a new allocated array in a.X field of size "k+1"
 # Time complexity: O(nk^2)
-# Space complexity: O(k)
+# Space complexity: O(nk)
 # Passed all tests
 from math import inf
 
