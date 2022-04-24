@@ -27,6 +27,7 @@ def valuable_tree_reku(a, k, sol):
 #   basic case - value of 0 edges has to be 0
     if a.left is None and a.right is None:
         return
+#   tree leaf so we back
     if a.left:
         valuable_tree_reku(a.left, k, sol)
     if a.right:
