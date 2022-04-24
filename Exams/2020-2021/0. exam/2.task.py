@@ -20,17 +20,18 @@ class Node:
 
 
 def valuable_tree_reku(a, k, sol):
-    if a.X:
-        return a.X[k]
+#   new node so we are force to allocate a new array to store solutions of subproblems
     if a.X is None:
         a.X = [-inf] * (k + 1)
         a.X[0] = 0
+#   basic case - value of 0 edges has to be 0
     if a.left is None and a.right is None:
         return
     if a.left:
         valuable_tree_reku(a.left, k, sol)
     if a.right:
         valuable_tree_reku(a.right, k, sol)
+#   after visiting left and right subtree we can start computing values of subproblems
     for x in range(1, k+1):
         best = -inf
         if a.left:
@@ -43,6 +44,9 @@ def valuable_tree_reku(a, k, sol):
         a.X[x] = best
         if x == k:
             sol[0] = max(sol[0], best)
+#    sol[0] will be storing best value of the final solution
+#    it's convenient to store it in an one element array, becuase values of it are not changing 
+#    with a recursion 
 
 
 def valuableTree(a, k):
