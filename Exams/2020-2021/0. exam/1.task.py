@@ -1,3 +1,13 @@
+# At the beginning, I check if given two strings have the same length. Later, I create 26 queues. First one will be
+# storing indexes on which there is "a" letter in a first word, second one - "b" letter etc. Now I consider second word
+# and if I want pop from empty queue it means that these words are not anagrams at all. Otherwise, they are anagrams.
+# I start popping elements from these queues and remember the greatest difference between indexes. If it is smaller or
+# equal to "t" it means that these words are t-anagrams. Allocating queues here is a good option, because, for instance,
+# if these words have two letters "o" we have to somehow compare smaller indexes with "o" letters between first and 
+# second word, second smaller indexes etc. Of course, approach with two arrays can also work.
+# Time complexity: O(n)
+# Space complexity: O(n)
+
 from queue import deque
 
 
