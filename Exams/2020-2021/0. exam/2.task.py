@@ -46,7 +46,7 @@ def valuable_tree_reku(a, k, sol):
         if x == k:
             sol[0] = max(sol[0], best)
 #    sol[0] will be storing best value of the final solution
-#    it's convenient to store it in an one element array, becuase values of it are not changing with a recursion 
+#    it's convenient to store it in an one element array, because values of it are not changing with a recursion 
 
 
 def valuableTree(a, k):
