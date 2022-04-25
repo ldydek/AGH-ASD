@@ -1,8 +1,8 @@
-# Firstly, we have to do small preprocessing of a matrix. During traversing first row if we meet positive field with
+# Firstly, we have to do a small preprocessing of a matrix. During traversing first row if we meet positive field with
 # a fuel we count value of entire stain and keep it in one field in the first row (the same which was positive at the
 # beginning and we meet it). Now I can greedily after first fuelling choose next field in a range of fuel with the
 # biggest number. After second fuelling range widens and again I choose a field with the biggest number. To do it, we
-# have to allocate priority queue, because next optimal fields can be either before considering field or after. All the
+# have to allocate priority queue, because next optimal field can be either before considering field or after. All the
 # time when I choose optimal place I add it to the solution.
 # Time complexity: O(nm)
 # Space complexity: O(nm) - we can pick stain from the entire board
