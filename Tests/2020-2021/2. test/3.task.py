@@ -3,7 +3,8 @@
 # beginning and we meet it). Now I can greedily after first fuelling choose next field in a range of fuel with the
 # biggest number. After second fuelling range widens and again I choose a field with the biggest number. To do it, we
 # have to allocate priority queue, because next optimal field can be either before considering field or after. All the
-# time when I choose optimal place I add it to the solution.
+# time when I choose optimal place I add it to the solution. This idea helps us to have on "i" the biggest possible 
+# amount of fuel, because tank is unlimited.
 # Time complexity: O(nm)
 # Space complexity: O(nm) - we can pick stain from the entire board
 # Passed all tests
