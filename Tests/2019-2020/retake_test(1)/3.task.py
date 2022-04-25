@@ -4,6 +4,7 @@
 # repeated until occurrence of certain element will be 0. If, so I can move front pointer further.
 # Time complexity: O(nk) = O(n), because k <<< n
 # Space complexity: O(k)
+# With dictionaries it's pure O(n), but it was prohibited then.
 # Passed all tests
 
 from math import inf
