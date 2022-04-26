@@ -5,6 +5,7 @@
 # just return a solution.
 # Time complexity: O(n log n)
 # Space complexity: O(n log n)
+# Passed all tests
 
 from queue import PriorityQueue
 
