@@ -29,7 +29,9 @@ def fast_list_prepend(L, a):
         # if this condition happens it means that adding a new pointer to first node ("x") is not necessary
         if ctr >= len(y.next):
             break
+        # creating a pointer
         x.next.append(y.next[ctr])
+        # jumping
         y = y.next[ctr]
         ctr += 1
     return x
