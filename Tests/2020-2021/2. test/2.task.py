@@ -1,8 +1,8 @@
 # Idea is to run BFS algorithm from "s" and later from "t" vertex. Now suppose that "i" vertex is one of the vertices
-# in the shortest path between "s" and "t". While considering all neighbours of "i" I check if distance from "s" to
-# this neighbour plus distance from it to "t" is greater than shortest path distance. Thanks to BFS algorithms from "s"
-# and "t" we have two shortest path trees rooted in "s" and "t", so after BFS it takes O(1) time to read distance
-# between for instance "s" and any other vertex thanks to "distance" arrays.
+# in the shortest path between "s" and "t". While considering all neighbours of "i" I check if for all of them distance 
+# from "s" to certain neighbour plus distance from it to "t" is greater than shortest path distance. Thanks to BFS
+# algorithms from "s" and "t" we have two shortest path trees rooted in "s" and "t", so after BFS it takes O(1) time to
+# read distance between for instance "s" and any other vertex thanks to "distance" arrays.
 # Time complexity: O(V+E) - two times BFS
 # Space complexity: O(V)
 # Passed all tests
