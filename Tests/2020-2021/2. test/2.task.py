@@ -29,9 +29,16 @@ def bfs(G, distance, parent, s):
 def follow_shortest_path(G, t, parent_s, distance_s, distance_t):
     length = distance_s[t]
     while parent_s[t] != -1:
+        flag = True
         for x in range(len(G[t])):
-            if length < distance_t[G[t][x]] + distance_s[G[t][x]]:
-                return parent_s[t], t
+            if G[t][x] == parent_s[t]:
+                continue
+            if length >= distance_t[G[t][x]] + distance_s[G[t][x]]:
+                flag = False
+        if flag:
+            return parent_s[t], t
+        # if distance from "s" to "t" for all neighbours of considered vertex is bigger than minimum length it means
+        # that another shorted path doesn't exist
         t = parent_s[t]
     return None
 
