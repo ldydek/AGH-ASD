@@ -1,4 +1,4 @@
-# Klasyczny BFS z tablicą "parent", dzięki której można skonstruuować najkrótsze ścieżki z zadanego źródła.
+# Classical BFS with "parent" array. Thanks to it we can construct shortest paths from the given source.
 
 from math import inf
 from collections import deque
