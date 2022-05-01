@@ -10,38 +10,32 @@
 from math import inf
 
 
-def sum(tab, x, y):
+def sum_of_values(tab, x, y):
     if x == 0:
         return tab[y]
-    return tab[y]-tab[x-1]
+    return tab[y] - tab[x-1]
 
 
 def opt_sum(tab):
     n = len(tab)
+    dp = [[-inf for _ in range(n)] for _ in range(n)]
     for x in range(1, n):
         tab[x] += tab[x-1]
-    aux_tab = [[inf for _ in range(n)] for _ in range(n)]
-    for x in range(n):
-        aux_tab[x][x] = abs(sum(tab, x, x))
-    for x in range(n-1):
-        aux_tab[x][x+1] = abs(sum(tab, x, x+1))
-    for y in range(2, n):
-        index = y
-        x = 0
-        while x + index < n:
-            best = inf
-            for z in range(x, x+index):
-                if z == x:
-                    best = max(min(best, aux_tab[x+1][x+index]), abs(sum(tab, x, y)))
-                if z == x+index-1:
-                    best = max(min(best, aux_tab[x][x+index-1]), abs(sum(tab, x, y)))
+    for y in range(1, n):
+        index1, index2 = 0, y
+        while index2 < n:
+            value = inf
+            for k in range(y):
+                if k == 0:
+                    value = max(abs(sum_of_values(tab, index1, index2)), dp[index1+1][index2])
+                elif k == y-1:
+                    value = min(value, max(abs(sum_of_values(tab, index1, index2)), dp[index1][index2-1]))
                 else:
-                    best = min(best, max(aux_tab[x][z], aux_tab[z+1][x+index], abs(sum(tab, x, y))))
-            if index == 2:
-                best = max(abs(sum(tab, x, x+index)), min(aux_tab[x][x+1], aux_tab[x+1][x+index]))
-            aux_tab[x][x+index] = best
-            x += 1
-    return aux_tab[0][n-1]
+                    value = min(value, max(dp[index1][index1+k], dp[index1+k+1][index2], abs(sum_of_values(tab, index1, index2))))
+            dp[index1][index2] = value
+            index1 += 1
+            index2 += 1
+    return dp[0][n-1]
 
 
 tab = [-999, -1000, 1001, 1000]
