@@ -21,42 +21,45 @@
 # "v" jest korzeniem, to gdy ma przynajmniej dwoje dzieci, to także jest punktem artykulacji, ponieważ aby dostać
 # się do drugiego poddrzewa jesteśmy zmuszeni ponownie przez korzeń przejść.
 # Lista kroków powyżej po angielsku.
+from math import inf
+
+
+def dfs(graph, distance, low, parent, time_and_children, if_point, x):
+    time_and_children[0] += 1
+    distance[x] = time_and_children[0]
+    low[x] = time_and_children[0]
+    for v in graph[x]:
+        if distance[v] == inf:
+            if time_and_children[2] == x:
+                time_and_children[1] += 1
+            parent[v] = x
+            low[x] = min(low[x], dfs(graph, distance, low, parent, time_and_children, if_point, v))
+            if low[v] >= distance[x]:
+                if_point[x] = 1
+        elif parent[x] != v:
+            low[x] = min(low[x], distance[v])
+    return low[x]
+
+
 def articulation_points(graph):
-    def dfs(graph, parent, low, solution, x):
-        nonlocal time
-        children = 0
-        time += 1
-        visited[x] = time
-        low[x] = time
-        for y in range(n):
-            if graph[x][y] != 0:
-                if visited[y] == 0:
-                    parent[y] = x
-                    children += 1
-                    dfs(graph, parent, low, solution, y)
-                    low[x] = min(low[x], low[y])
-                    if visited[x] <= low[y] and parent[x] != -1:
-                        solution[x] = 1
-                elif parent[x] != y:
-                    low[x] = min(low[x], visited[y])
-        if children >= 2 and parent[x] == -1:
-            solution[x] = 1
-
-    n, time = len(graph), 0
-    visited = [0]*n
-    parent = [-1]*n
-    low = [0]*n
-    solution = [0]*n
-    ap = []
+    n = len(graph)
+    distance = [inf] * n
+    low = [inf] * n
+    parent = [-1] * n
+    time_and_children = [0, 0, 0]
+    if_point = [0] * n
+    solution = []
+    root = 0
+    dfs(graph, distance, low, parent, time_and_children, if_point, root)
+    if time_and_children[1] >= 2:
+        solution.append(0)
     for x in range(n):
-        if visited[x] == 0:
-            dfs(graph, parent, low, solution, x)
-    for x in range(n):
-        if solution[x] == 1:
-            ap.append(x)
-    return ap
+        if x == root:
+            continue
+        if if_point[x] == 1:
+            solution.append(x)
+    return solution
 
 
-graph = [[0, 1, 1, 1, 0, 0, 0], [1, 0, 1, 0, 0, 0, 0], [1, 1, 0, 0, 0, 0, 1], [1, 0, 0, 0, 1, 1, 0], [0, 0, 0, 1, 0, 1, 0],
-         [0, 0, 0, 1, 1, 0, 0], [0, 0, 1, 0, 0, 0, 0]]
+graph = [[1, 4], [0, 2], [1, 3, 4], [2], [0, 2, 5], [4, 6, 7], [5, 7], [5, 6]]
 print(articulation_points(graph))
