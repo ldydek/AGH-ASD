@@ -25,29 +25,37 @@ from math import inf
 from queue import PriorityQueue
 
 
+def relax(queue, distance, parent, x, y, z):
+    if distance[x] > distance[y] + z:
+        distance[x] = distance[y] + z
+        parent[x] = y
+        queue.put((distance[x], x))
+
+
 def dijkstras_algorithm_l(graph1, s):
     n = len(graph1)
-    distance = [inf]*n
+    distance = [inf] * n
+    visited = [0] * n
+    parent = [-1] * n
+    queue = PriorityQueue()
+    queue.put((0, s))
     distance[s] = 0
-    visited = [False]*n
-    Q = PriorityQueue()
-    Q.put((0, s))
-    parent = [-1]*n
 
-    while not Q.empty():
-        u = Q.get()
-        v = u[1]
-        if visited[v] is False:
-            visited[v] = True
-            for x in range(len(graph1[v])):
-                if visited[graph1[v][x][0]] is False:
-                    # [ENG] relaxation
-                    # [PL] relaksacja
-                    if distance[graph1[v][x][0]] > distance[v] + graph1[v][x][1]:
-                        distance[graph1[v][x][0]] = distance[v] + graph1[v][x][1]
-                        parent[graph1[v][x][0]] = v
-                        Q.put((distance[graph1[v][x][0]], graph1[v][x][0]))
+    while not queue.empty():
+        a, b = queue.get()
+        visited[b] = 1
+        for x in graph1[b]:
+            if visited[x[0]] == 0:
+                relax(queue, distance, parent, x[0], b, x[1])
     return print_path(parent, 4)
+
+
+def print_path(parent, t):
+    path = []
+    while t != -1:
+        path.append(t)
+        t = parent[t]
+    return path[::-1]
 
 
 def dijkstras_algorithm_m(graph2, s):
