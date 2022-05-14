@@ -3,8 +3,8 @@
 # inform us about temporary shortest path from the source to "x" vertex having "y" litres of fuel. Of course, when
 # we meet a petrol station at point "x" it's always better to fuel the vehicle so in this case we just consider
 # situation distance[x][d], where "d" is a capacity of a tank.
-# Time complexity: O(nd log nd)
-# Space complexity: O(nd)
+# Time complexity: O((E log V) * d)
+# Space complexity: O(d * V)
 # Passed all tests
 
 from math import inf
