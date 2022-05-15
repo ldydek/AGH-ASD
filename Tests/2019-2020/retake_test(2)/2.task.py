@@ -1,5 +1,12 @@
-#
-
+# Firstly, I change graph representation to adjacency lists. Later, I add one more vertex, which will be the source and
+# from it we run dijkstra's algorithm. To the priority queue I add tuples: (distance from source, letter, vertex, letter
+# index). In a distance array field [x][y] will inform us about shortest path to "x" vertex considering letter in "x"
+# vertex as "y-th" in a given word. It is necessary, because we can visit certain vertex not only once and considering
+# "k" letter as first one or third in a word "kok" differs. When I pop tuple with last letter in a given word I know
+# that shortest path to it is correctly computed, so I can simply return it.
+# Time complexity: O(kE * log kV), where "k" is the given word length 
+# Space complexity: O(nk)
+# Passed all tests
 
 from math import inf
 from queue import PriorityQueue
