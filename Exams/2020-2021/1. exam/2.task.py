@@ -1,3 +1,5 @@
+# Passed all tests
+
 from math import inf
 from queue import PriorityQueue
 
