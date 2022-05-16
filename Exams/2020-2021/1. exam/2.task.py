@@ -1,3 +1,14 @@
+# Modification of Dijkstra's algorithm. We can consider each field on the board as a graph vertex. To each field we can
+# go in 12 different ways: from the north having speed either 60, 40 or 30. Direction can be also different: north,
+# west, east, south. So for keeping computed times by robot to get to certain field we have to allocate four-dimensional
+# "distance" array (two dimensions for a board field, one for speed and last one for direction). Alternatively we
+# could allocate three dimensions with arrays length 12 at the deepest level. To the priority queue I add tuples:
+# (time, position, "moves" array index, velocity). Index will help us choose an appropriate element, because when robot
+# is turned to north its position after possible move will be different than during for instance west direction. If I
+# extract the destination point from a priority queue, it means that the shortest time is correctly computed and I can
+# simply return it.
+# Time complexity: O(xy log xy)
+# Space complexity: O(xy), where "x" and "y" are board height and width
 # Passed all tests
 
 from math import inf
