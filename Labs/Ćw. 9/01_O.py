@@ -6,6 +6,7 @@
 from math import inf
 
 
+# function that helps us to choose next vertex for which shortest path is not already computed
 def choose_next_vertex(distance, visited):
     index, value = None, inf
     for x in range(len(distance)):
@@ -18,6 +19,7 @@ def choose_next_vertex(distance, visited):
     return index
 
 
+# possible edge relaxation
 def relax(graph, distance, x, vertex):
     if distance[x] > distance[vertex] + graph[vertex][x]:
         distance[x] = distance[vertex] + graph[vertex][x]
