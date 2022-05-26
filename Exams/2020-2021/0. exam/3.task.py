@@ -3,7 +3,7 @@
 # "distance" for keeping distances of shortest path and "visited" for checking if for certain vertex shortest path was
 # already computed. Note that here using heap (priority queue) is not necessary, because traversing "distance" matrix
 # for picking up next vertex takes O(n) time. The same time complexity we use later for traversing one of the graph
-# matrix rows.
+# matrix rows. We can finish algorithm when we choose from "distance" array the destination vertex.
 # Time complexity: O(n^3)
 # Space complexity: O(n)
 # Passed all tests
