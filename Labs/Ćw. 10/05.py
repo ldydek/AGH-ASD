@@ -1,4 +1,5 @@
-# |E| times I determine spanning tree on this graph using find-union technique. First time it will be MST, later not.
+# |E| times I determine spanning tree on this graph using find-union technique. First time it will be MST. Later, I 
+# consider sublist of edge list apart from "n" first elements, so I will get certain spanning tree but not MST.
 # Each time I additionally compute difference between the heaviest and lightest edge weight in a spanning tree.
 # Time complexity: O(E log V + E^2) = O(E^2)
 # Space complexity: O(E)
