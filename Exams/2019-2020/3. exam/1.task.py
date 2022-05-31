@@ -2,6 +2,8 @@
 # do it by using two times BFS. Firstly, from random vertex and later from the furthest vertex which was shows by first
 # BFS (it works only in a tree!). At the end, using "parent" array we can construct this diameter and travel only half
 # of its length.
+# Time complexity: O(V+E)
+# Space complexity: O(V)
 # Passed all tests
 from collections import deque
 from math import inf
