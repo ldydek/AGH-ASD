@@ -1,8 +1,9 @@
+# Idea is to implement longest increasing subsequence algorithm from the end and longest decreasing subsequence from
+# the beginning of the given array. Later we determine on which index LDS from the beginning to that index and LIS from
+# that index to the end have the most elements. Thanks to "parent" array we can easily construct searched sequence.
+# Time complexity: O(n^2)
+# Space complexity: O(n)
 # Passed all tests - last one 28 s!
-# Done with O(n^2)
-
-from zad1testy import runtests
-
 
 def strictly_decreasing(X):
     for x in range(len(X) - 1):
@@ -77,7 +78,5 @@ def mr(X):
     return find_solution(X, lds_parent, lcs_parent, index)
 
 
-runtests(mr)
-# X = [4, 10, 5, 1, 2, 3, 4]
-#
-# print(mr(X))
+X = [4, 10, 5, 1, 2, 3, 4]
+print(mr(X))
