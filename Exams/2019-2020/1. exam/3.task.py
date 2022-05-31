@@ -1,49 +1,50 @@
-# Idea is to from given matrix create a directed acyclic graph (dag). In this graph edge (u,v) informs us that task "u"
-# has to be done before task "v". At the end, we can sort given graph topologically and obtain correct sequence of
-# vertices.
-# Time complexity: O(n^2)
-# Space complexity: O(n^2)
+# Firstly, we have to from the function values get to its arguments, so we are forced to logarithm every number. Now
+# we run bucket sort algorithm, because function arguments come from uniform distribution. After sorting all the numbers
+# we back to function values, because exponential function a^x, where a > 1 is always an increasing function.
+# Time complexity: O(n)
+# Space complexity: O(n)
 # Passed all tests
 
-def dfs_visit(graph, visited, solution, s):
-    for x in range(len(graph)):
-        if graph[s][x] == 1 and visited[x] == 0:
-            visited[x] = 1
-            dfs_visit(graph, visited, solution, x)
-    solution.append(s)
+from math import log
 
 
-def dfs(graph):
-    n = len(graph)
-    visited = [0] * n
-    solution = []
+def insertion_sort(tab):
+    n = len(tab)
+    for x in range(1, n):
+        key = tab[x]
+        y = x - 1
+        while y >= 0 and tab[y] > key:
+            tab[y+1] = tab[y]
+            y = y - 1
+        tab[y+1] = key
+    return tab
+
+
+def bucket_sort(tab):
+    n = len(tab)
+    buckets = [[] for _ in range(n)]
+    interval = 1/n
+    for x in tab:
+        buckets[int(x//interval)].append(x)
+    index = 0
     for x in range(n):
-        if visited[x] == 0:
-            visited[x] = 1
-            dfs_visit(graph, visited, solution, x)
-    return solution[::-1]
+        if len(buckets[x]) > 0:
+            insertion_sort(buckets[x])
+        for y in buckets[x]:
+            tab[index] = y
+            index += 1
+    return tab
 
 
-def topological_sorting(graph):
-    return dfs(graph)
-
-
-def create_graph(T):
-    n = len(T)
-    graph = [[0 for _ in range(n)] for _ in range(n)]
+def fast_sort(tab, a):
+    n = len(tab)
     for x in range(n):
-        for y in range(n):
-            if T[x][y] == 1:
-                graph[x][y] = 1
-            elif T[x][y] == 2:
-                graph[y][x] = 1
-    return graph
+        tab[x] = log(tab[x], a)
+    bucket_sort(tab)
+    for x in range(n):
+        tab[x] = a ** tab[x]
+    return tab
 
 
-def tasks(T):
-    graph = create_graph(T)
-    return topological_sorting(graph)
-
-
-T = [[0, 0, 2, 1, 1], [1, 0, 0, 0, 0], [1, 1, 0, 0, 0], [0, 0, 0, 0, 1], [2, 0, 0, 0, 0]]
-print(tasks(T))
+T = [0.1, 0.5, 0.2, 0.78, 0.01]
+print(fast_sort(T, 2))
