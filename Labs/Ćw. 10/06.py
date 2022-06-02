@@ -1,7 +1,10 @@
-# DFS/BFS z dowolnego wierzchołka - O(V+E) = O(V)
-# DFS/BFS z najdalszego wierzchołka - O(V) - mamy średnicę
-# poruszamy się po średnicy długości O(V) i wybieramy odpowiedni wierzchołek
-# czyli całość O(V)
+# Idea is to from random vertex run BFS and gain shortest path tree (given graph is a weighted tree so each edge will
+# be relaxed only once). Now we can run BFS once more from the furthest vertex (let's call it "v") as a root. After
+# second BFS path from furthest vertex (let's call it "u") to "v" creates graph diameter. This idea with two BFS works
+# only on trees! At the end, thanks to "parent" array we traverse diameter and find an appropriate vertex for which
+# absolute value from distances to "u" and "v" is the lowest. That vertex is an answer.
+# Time complexity: O(V) - BFS and diameter traversal (all O(V))
+# Space complexity: OV)
 
 from collections import deque
 from math import inf
