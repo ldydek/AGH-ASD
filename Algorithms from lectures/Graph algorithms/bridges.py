@@ -31,7 +31,9 @@ def dfs(graph, distance, low, parent, time, x):
     for v in graph[x]:
         if distance[v] == inf:
             parent[v] = x
+            # considering all "x" children in DFS forest
             low[x] = min(low[x], dfs(graph, distance, low, parent, time, v))
+        # back edge
         elif parent[x] != v:
             low[x] = min(low[x], distance[v])
     return low[x]
