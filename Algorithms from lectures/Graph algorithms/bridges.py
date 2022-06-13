@@ -21,39 +21,37 @@
 # Złożoność czasowa: O(|V|+|E|) - taka jak w DFS
 # Złożoność pamięciowa: O(|V|) - dodatkowej tablice: low, visited, parent i dla trzymania rozwiązania
 
-def bridges(graph):
-    def dfs(graph, parent, x):
-        nonlocal time
-        time += 1
-        visited[x] = time
-        low[x] = time
-        for y in range(n):
-            if graph[x][y] != 0:
-                if visited[y] == 0:
-                    parent[y] = x
-                    dfs(graph, parent, y)
-                    low[x] = min(low[x], low[y])
-#                   [ENG] "x" - vertex, "y" -its child
-#                   [PL] "x" - wierzchołek, "y" - jego dziecko
-                elif parent[x] != y:
-                    low[x] = min(low[x], visited[y])
-#                   [ENG] Back edge
-#                   [PL] Krawędź wsteczna
+from math import inf
 
-    n, time = len(graph), 0
-    parent = [-1]*n
-    visited = [0]*n
-    low = [0]*n
+
+def dfs(graph, distance, low, parent, time, x):
+    time[0] += 1
+    distance[x] = time[0]
+    low[x] = time[0]
+    for v in graph[x]:
+        if distance[v] == inf:
+            parent[v] = x
+            low[x] = min(low[x], dfs(graph, distance, low, parent, time, v))
+        elif parent[x] != v:
+            low[x] = min(low[x], distance[v])
+    return low[x]
+
+
+def bridges(graph):
+    n = len(graph)
+    distance = [inf] * n
+    low = [inf] * n
+    parent = [-1] * n
+    time = [0]
+    for x in range(n):
+        if distance[x] == inf:
+            dfs(graph, distance, low, parent, time, x)
     solution = []
     for x in range(n):
-        if visited[x] == 0:
-            dfs(graph, parent, x)
-    for x in range(n):
-        if parent[x] != -1 and low[x] == visited[x]:
+        if distance[x] == low[x] and parent[x] != -1:
             solution.append((parent[x], x))
     return solution
 
 
-graph = [[0, 1, 1, 1, 0, 0], [1, 0, 1, 0, 0, 0], [1, 1, 0, 0, 0, 0], [1, 0, 0, 0, 1, 1], [0, 0, 0, 1, 0, 1],
-         [0, 0, 0, 1, 1, 0]]
+graph = [[1, 4], [0, 2], [1, 3, 4], [2], [0, 2, 5], [4, 6, 7], [5, 7], [5, 6]]
 print(bridges(graph))
