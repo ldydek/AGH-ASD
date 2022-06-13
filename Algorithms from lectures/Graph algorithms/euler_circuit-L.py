@@ -4,10 +4,9 @@
 # 2) Jeżeli warunki konieczne są spełnione, to wywołujemy algorytm DFS z dowolnego wierzchołka i w momencie
 # przetworzenia dodajemy go na początek listy wierzchołków tworzących cykl Eulera.
 # To co jest nietypowe w tym algorytmie to fakt, iż jako odwiedzone oznaczamy krawędzie a nie wierzchołki.
-# Mam wrażenie, że dla sposobu implementacji grafu jako listy sąsiedztwa lekko zepsuta jest złożoność przez liniowe
-# szukanie krawędzi odwrotnej. W macierzy sąsiedztwa operacja ta jest znacznie łatwiejsza.
 
 
+# implementation without checking graph consistency 
 # checking whether graph is Eulerian
 # (even degree vertices)
 def checking(graph):
