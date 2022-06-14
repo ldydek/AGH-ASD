@@ -4,6 +4,7 @@
 # of groups). Additionally, we can notice that given graph doesn't have to be consistent (only A and B have to be in
 # one connected component).
 # Time complexity: O(E log V)
+# Space complexity: O(V)
 
 from math import inf
 
