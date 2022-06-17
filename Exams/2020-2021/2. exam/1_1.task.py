@@ -10,6 +10,7 @@ from zad1testy import runtests
 from collections import deque
 
 
+# creating adjacency matrix from given list
 def create_graph(I, a, b):
     n = len(I)
     n += 2
@@ -26,6 +27,7 @@ def create_graph(I, a, b):
     return graph
 
 
+# before second traversal we are forced to turn edges around
 def transpose_graph(graph):
     n = len(graph)
     for x in range(n):
@@ -33,6 +35,7 @@ def transpose_graph(graph):
             graph[x][y], graph[y][x] = graph[y][x], graph[x][y]
 
 
+# during BFS traversal we check which vertices will be visited (are accessible from the source)
 def bfs(graph, s):
     n = len(graph)
     queue = deque()
