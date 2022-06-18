@@ -6,7 +6,7 @@
 # Space complexity: O(dn)
 # Passed all tests
 
-# O(d)
+# O(d) - function checking whether string "a" is a prefix of string "b"
 def prefix(a, b):
     for x in range(len(a)):
         if a[x] != b[x]:
@@ -14,7 +14,8 @@ def prefix(a, b):
     return True
 
 
-# O(dn log n + dn) = O(dn log n)
+# O(dn log n + dn) = O(dn log n) - function checking which strings are only
+# nice and rewriting very nice ones to another array with a solution
 def removing_prefixes(tab):
     n = len(tab)
     tab.sort()
