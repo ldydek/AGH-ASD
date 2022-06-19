@@ -3,7 +3,7 @@
 # nice string, so it is not very nice. To remove only nice strings we can sort nice strings array and search for this
 # string for which it is not a prefix of next one. All these strings are very nice.
 # Time complexity: O(dn log n)
-# Space complexity: O(dn)
+# Space complexity: O(dn) = O(D), where "D" is a sum of all letters from all strings
 # Passed all tests
 
 # O(d) - function checking whether string "a" is a prefix of string "b"
