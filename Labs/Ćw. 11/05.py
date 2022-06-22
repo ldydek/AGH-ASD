@@ -1,4 +1,4 @@
-# We split every vertex (let's call it "v") apart from source and sink to two vertices v' and v''. Later we create edges
+# We split every vertex (let's call it "v") apart from source and sink to two vertices v' and v''. Later, we create edges
 # to v' if they were coming to "v", from v'' if they were coming from "v" and one edge (v',v''). All edges are directed.
 # On this graph we can run Edmonds-Karp algorithm we will compute maximum flow and simultaneously the biggest number of
 # vertex-separable paths.
