@@ -25,6 +25,8 @@ def bfs(graph, parent, s, t):
                 Q.append(x)
 
 
+# Edmonds-Karp implementation
+# we know after each BFS that maximum flow can be increased only by 1 (unitary edge weights)
 def edmonds_karp_algorithm(graph, s, t):
     n = len(graph)
     parent = [-1] * n
@@ -39,6 +41,8 @@ def edmonds_karp_algorithm(graph, s, t):
     return max_flow
 
 
+# deleting edges coming to v'' and creating this ones that will be coming to v'
+# directed edge (v',v'') is an exception
 def modify_edges(graph, v, w):
     n = len(graph)
     for x in range(n):
@@ -47,12 +51,14 @@ def modify_edges(graph, v, w):
             graph[x][w] = 1
 
 
+# splitting certain vertex to two vertices, so adjacency matrix has to be appropriately changed
 def split_vertex(graph, v):
     n = len(graph)
     for x in range(n):
         graph[x].append(0)
     n += 1
     graph.append([0 for _ in range(n)])
+    # creating edge (v', v'') here
     graph[n-1][v] = 1
     modify_edges(graph, v, n-1)
 
