@@ -5,7 +5,7 @@
 # Time complexity: O(n^2)
 # Space complexity: O(n)
 # Passed all tests
-# Time for all tests: ~3s
+# Time for all tests: ~ 3s
 
 from kol3atesty import runtests
 
