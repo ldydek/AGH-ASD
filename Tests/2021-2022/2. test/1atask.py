@@ -1,7 +1,19 @@
+# Dynamic programming approach
+# f(v) - minimum amount of control points visited by Marian when Jacek is driving to "v" change point
+# g(v) - minimum amount of control points visited by Marian when Marian is driving to "v" change point
+# recursion:
+# f(v) = min(g(v-1), g(v-2), g(v-3))
+# g(v) = min(f(v-1)+cost(i-1,i), f(v-2)+cost(i-2,i), f(v-3)+cost(i-3,i))
+# cost function defines number of control points between given two change points as arguments
+# basic cases:
+# g(1) = 0 - thanks to it we can now start computing values starting from Jacek (he is driving at the beginning)
+# Before using dynamic programming we have to sort given list. In an auxiliary array we can keep information about how
+# many control points is from the beginning. Thanks to it we can read in constant time how many control points are
+# between certain two change points. Additionally, we can treat final destination as last change point.
 # Time complexity: O(n log n)
 # Space complexity: O(n)
 # Passed all tests
-# 
+# Time for all tests: ~ 0.04s
 
 from kol2atesty import runtests
 from math import inf
