@@ -12,6 +12,8 @@ from queue import PriorityQueue
 from math import inf
 
 
+# O(m) - creating a graph from edge list
+# m - number of edges
 def create_graph(E, n):
     graph = [[] for _ in range(n)]
     for x, y, z in E:
@@ -20,6 +22,7 @@ def create_graph(E, n):
     return graph
 
 
+# O(n) - adding cycle between all special planets
 def add_cycle(graph, S):
     n = len(S)
     for x in range(1, n):
@@ -29,12 +32,14 @@ def add_cycle(graph, S):
     graph[S[n-1]].append((S[0], 0))
 
 
+# O(1)
 def relax(queue, distance, x, v, y):
     if distance[x] > distance[v] + y:
         distance[x] = distance[v] + y
         queue.put((distance[x], x))
 
 
+# O(m log n) - basic Dijkstra's algorithm implementation on lists
 def dijkstra(graph, a, b):
     n = len(graph)
     distance = [inf] * n
@@ -51,6 +56,7 @@ def dijkstra(graph, a, b):
     return
 
 
+# O(m log n)
 def spacetravel(n, E, S, a, b):
     graph = create_graph(E, n)
     add_cycle(graph, S)
