@@ -3,6 +3,9 @@
 # Dijkstra's algorithm and compute shortest path between "a" and "b".
 # Time complexity: O((m+n) log n) - O(m+n) - entire number of edges
 # but O((m+n) log n) = O(m log n)
+# Space complexity: O(V)
+# Passed all tests
+# Time for all tests: ~ 0.06s
 
 from kol3atesty import runtests
 from queue import PriorityQueue
