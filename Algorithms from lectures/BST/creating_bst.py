@@ -46,7 +46,7 @@ def inorder_traversal(T):
 
 
 # creating binary search tree by several or more times inserting to it new element
-def create_bst_tree(tab):
+def create_bst(tab):
     root = None
     for x in tab:
         root = insert(root, x)
@@ -54,4 +54,4 @@ def create_bst_tree(tab):
 
 
 tab = [10, 2, 13, 5, 7, 11, 1]
-create_bst_tree(tab)
+create_bst(tab)
