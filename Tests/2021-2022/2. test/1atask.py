@@ -8,7 +8,7 @@
 # basic cases:
 # g(1) = 0 - thanks to it we can now start computing values starting from Jacek (he is driving at the beginning)
 # Before using dynamic programming we have to sort given list. In an auxiliary array we can keep information about how
-# many control points is from the beginning. Thanks to it we can read in constant time how many control points are
+# many control points are from the beginning. Thanks to it we can read in constant time how many control points are
 # between certain two change points. Additionally, we can treat final destination as last change point.
 # Time complexity: O(n log n)
 # Space complexity: O(n)
