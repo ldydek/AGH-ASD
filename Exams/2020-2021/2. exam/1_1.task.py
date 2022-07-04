@@ -3,7 +3,7 @@
 # in a solution. Now we can run BFS/DFS algorithm twice from "x" and "y" vertices. This vertices which will be visited
 # in both traversals are part of a solution.
 # Time complexity: O(n^2)
-# Space complexity: O(n)
+# Space complexity: O(n^2)
 # Passed all tests
 
 from zad1testy import runtests
