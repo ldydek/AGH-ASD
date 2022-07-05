@@ -52,7 +52,7 @@ def zbigniew( A ):
     dp = [[float("inf") for _ in range(n)] for _ in range(n)]
     # basic cases
     for x in range(min(n, A[0]+1)):
-        dp[0][x] = 1
+        dp[0][x] = 0
 
     # pure dynamic programming
     for x in range(1, n):
@@ -65,7 +65,7 @@ def zbigniew( A ):
             # condition happens when jumping to "x" field with "y" energy after consuming is possible
             # and additionally energy level allows Zbigniew to jump to the last field
             if dp[x][y] != float("inf") and y >= n - x - 1:
-                return dp[x][y]
+                return dp[x][y] + 1
        
 
 runtests(zbigniew)
