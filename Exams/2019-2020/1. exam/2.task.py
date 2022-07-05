@@ -41,7 +41,9 @@ def opt_sum(tab):
         while index2 < n:
             value = float("inf")
             for k in range(index1+1, index2-1):
+                # first case - at least two numbers in each bracket
                 value = min(value, max(dp[index1][k], dp[k+1][index2]))
+            # second case - in a certain bracket only one number
             value = min(value, max(abs(get_sum(tab, index1, index2)), min(dp[index1][index2-1], dp[index1+1][index2])))
             dp[index1][index2] = value
             index1 += 1
