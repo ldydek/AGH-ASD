@@ -1,9 +1,9 @@
 # [ENG] Thanks to dynamic programming we can find longest increasing subsequence (LIS) of given sequence. So let's
-# declare a function: f(i) - LIS which consists of elements only from tab[0] to tab[i].
+# declare a function: f(i) - LIS which consists of elements only from tab[0] to tab[i] and ends in tab[i]
 # Basic case: f(0) = 1, one-piece sequence is a trivial increasing sequence
 # Recursion: f(i) = max(f(k))+1, where "k" is a certain index located before index "i", so already computed value f(k)
 # informs us about LIS from tab[0] to tab[k]
-# Solution: f(n-1) - last element of our auxiliary array
+# Solution: max(f(i)) - last element of our auxiliary array
 # Note that LIS doesn't have to be unique. A sequence can have several longest increasing subsequences.
 # [PL] Dzięki programowaniu dynamicznemu jesteśmy w stanie znaleźć najdłuższy rosnący podciąg (z ang. LIS) podanego
 # ciągu. Funkcja, zależność rekurencyjna oraz sposób odczytywania rozwiązania są podane powyżej w języku angielskim.
