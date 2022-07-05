@@ -32,3 +32,40 @@ def zbigniew(A):
 
 A = [2, 2, 1, 0, 0, 0]
 print(zbigniew(A))
+
+
+------------------------------------------------------------------------------------
+# Dynamic programming approach
+# f(i, j) - minimum number of jumps to get to A[i] having "j" energy after consuming
+# energy level before eating - max(0, j-A[i])
+# recursion: f(i, j) = min(f(i-k, max(0, j-A[i])+k), where 1 <= k <= i
+# basic cases: f(0, min(A[0], n-1)) = 0, where "n" is the array length
+# Time complexity: O(n^3)
+# Space complexity: O(n^2)
+# Passed all tests
+
+from zad1testy import runtests
+
+
+def zbigniew( A ):
+    n = len(A)
+    dp = [[float("inf") for _ in range(n)] for _ in range(n)]
+    # basic cases
+    for x in range(min(n, A[0]+1)):
+        dp[0][x] = 1
+
+    # pure dynamic programming
+    for x in range(1, n):
+        for y in range(n):
+            value = float("inf")
+            for k in range(1, x+1):
+                before_eat = max(0, y - A[x])
+                value = min(value, dp[x-k][before_eat + k])
+            dp[x][y] = value + 1
+            # condition happens when jumping to "x" field with "y" energy after consuming is possible
+            # and additionally energy level allows Zbigniew to jump to the last field
+            if dp[x][y] != float("inf") and y >= n - x - 1:
+                return dp[x][y]
+       
+
+runtests(zbigniew)
