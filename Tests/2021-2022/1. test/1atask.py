@@ -11,7 +11,7 @@
 from kol1atesty import runtests
 
 
-# O(n) - changing certain list elements to their reverses
+# O(N) - changing certain list elements to their reverses
 def change(T):
     n = len(T)
     for x in range(n):
