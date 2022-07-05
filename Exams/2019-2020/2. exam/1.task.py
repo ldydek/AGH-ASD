@@ -47,7 +47,7 @@ print(zbigniew(A))
 from zad1testy import runtests
 
 
-def zbigniew( A ):
+def zbigniew(A):
     n = len(A)
     dp = [[float("inf") for _ in range(n)] for _ in range(n)]
     # basic cases
@@ -66,6 +66,7 @@ def zbigniew( A ):
             # and additionally energy level allows Zbigniew to jump to the last field
             if dp[x][y] != float("inf") and y >= n - x - 1:
                 return dp[x][y] + 1
+    return -1
        
 
 runtests(zbigniew)
