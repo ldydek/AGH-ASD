@@ -7,10 +7,13 @@
 # In other words we want to find f(i, j), so we try to divide (A[i],...,A[j]) into two parts of the lowest temporary
 # scores and these subproblems were computed before and can be included in a final solution (optimal substructure).
 # Passed all tests
-from math import inf
+def prefix_sum(tab):
+    n = len(tab)
+    for x in range(1, n):
+        tab[x] += tab[x-1]
 
 
-def sum_of_values(tab, x, y):
+def get_sum(tab, x, y):
     if x == 0:
         return tab[y]
     return tab[y] - tab[x-1]
@@ -18,24 +21,23 @@ def sum_of_values(tab, x, y):
 
 def opt_sum(tab):
     n = len(tab)
-    dp = [[-inf for _ in range(n)] for _ in range(n)]
-    for x in range(1, n):
-        tab[x] += tab[x-1]
-    for y in range(1, n):
-        index1, index2 = 0, y
+    prefix_sum(tab)
+    dp = [[float("inf") for _ in range(n)] for _ in range(n)]
+    # basic cases
+    for x in range(n-1):
+        dp[x][x+1] = abs(get_sum(tab, x, x+1))
+    # pure dynamic programming here
+    for x in range(2, n):
+        index1, index2 = 0, x
         while index2 < n:
-            value = inf
-            for k in range(y):
-                if k == 0:
-                    value = max(abs(sum_of_values(tab, index1, index2)), dp[index1+1][index2])
-                elif k == y-1:
-                    value = min(value, max(abs(sum_of_values(tab, index1, index2)), dp[index1][index2-1]))
-                else:
-                    value = min(value, max(dp[index1][index1+k], dp[index1+k+1][index2], abs(sum_of_values(tab, index1, index2))))
+            value = float("inf")
+            for k in range(index1+1, index2-1):
+                value = min(value, max(dp[index1][k], dp[k+1][index2]))
+            value = min(value, max(abs(get_sum(tab, index1, index2)), min(dp[index1][index2-1], dp[index1+1][index2])))
             dp[index1][index2] = value
             index1 += 1
             index2 += 1
-    return dp[0][n-1]
+    return dp[0][-1]
 
 
 tab = [-999, -1000, 1001, 1000]
