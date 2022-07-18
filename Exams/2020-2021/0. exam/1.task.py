@@ -7,6 +7,7 @@
 # second word, second smaller indexes etc. Of course, approach with two arrays can also work.
 # Time complexity: O(n)
 # Space complexity: O(n)
+# Passed all tests
 
 from queue import deque
 
